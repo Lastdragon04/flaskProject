@@ -9,8 +9,9 @@ app=Flask(__name__)
 app.config.from_object(Config)
 mail.init_app(app)
 app.register_blueprint(user_bp)
-
-@app.route('/index',methods=['GET'])
+app.jinja_env.variable_start_string = '(('
+app.jinja_env.variable_end_string = '))'
+@app.route('/',methods=['GET'])
 def index():
     if request.method=='GET':
-        return render_template('../templates/index.html')
+        return render_template('index.html')

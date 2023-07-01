@@ -1,0 +1,76 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display-swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+.out_window{
+    position: absolute;
+    display: block;
+    width: 50vw;
+    height: 60vh;
+    z-index: 10000;
+    margin-left: 25vw;
+    margin-top: 15vh
+}
+.biaoqian{
+    display: block;
+    background: url("../img/标签.jpeg") no-repeat;
+    background-size: cover;
+    width:17vw;
+    height: 65vh;
+    margin-top: -5vh;
+    margin-left: -3vh;
+    border-radius: 0.5em;
+}
+.window_in_box{
+    display: flex;
+    flex-direction: column;
+    margin-left: 1vw;
+    width: 32vw;
+    height: 55vh;
+    gap: 2vh;
+}
+.close_window{
+    display: block;
+    position: absolute;
+    right: -1vw;
+    top:-3vh
+}
+a:link {color:black;}
+a:hover{color:black}
+.input_box{
+    position: relative;
+    width: 250px;
+}
+.input_box input{
+    width: 100%;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;
+    font-size: 1em;
+}
+.input_box label{
+    position: absolute;
+    left: 0;
+    padding: 10px;
+    pointer-events: none;
+    font-size: 1em;
+    color: gray;
+    text-transform: uppercase;
+    transition: 0.5s;
+}
+.input_box input:valid ~label,
+.input_box input:focus ~label
+{
+    color: black;
+    background: white;
+    transform: translateX(1vw) translateY(-2vh);
+    font-size: 0.65em;
+    padding: 0 10px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+    letter-spacing: 0.2em;
+}

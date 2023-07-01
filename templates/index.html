@@ -1,10 +1,12 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+﻿{% extends 'base.html' %}
+{% block title %}
+    标题
+{% endblock %}
+{% block body%}
+    <div class="jumbotron">
+        <h1 class="display-4">欢迎使用{{System_name}}</h1>
+        <p class="lead">本系统由flask,Vue,Bootstrap完成</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="#" role="button">登录</a>
+    </div>
+{% endblock %}

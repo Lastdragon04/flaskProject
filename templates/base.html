@@ -2,11 +2,67 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>{% block title %}{% endblock %}</title>
     <link rel="stylesheet" href="">
     <script src="../static/js/vue.js"></script>
+    <link rel="stylesheet" href="../static/css/normal.css">
+    <link rel="stylesheet" href="../static/bootstrap-4.6.2-dist/css/bootstrap.css">
 </head>
 <body>
-3
+    <div id="root">
+        <div class="out_window shadow-lg p-3 mb-5 bg-white rounded">
+            <div class="close_window"><a href="javascript:void(0)">[esc]关闭窗口</a></div>
+            <div style="display: flex;justify-content: space-between">
+                <div class="biaoqian"></div>
+                <div class="window_in_box">
+                    <div id="progress" style="height: 3vh;width: 30vw">
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div id="login" style="display: none"></div>
+                    <div id="register1">
+                        <h3>准备好成为{{System_name}}的一员了嘛</h3>
+                        <hr>
+                        <div style="display: flex;justify-content: space-between">
+                            <div style="display:flex;flex-direction: column;gap: 3vh;margin-top: 1vh">
+                                <div class="input_box">
+                                    <input type="text" maxlength="20" id="Register_Username" required><label for="Register_Username">Username</label><br>
+                                </div>
+                                <div class="input_box">
+                                    <input type="text" maxlength="320" id="Register_Email" required><label for="Register_Email">Email</label>
+                                </div>
+                            </div>
+                            <div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="register2" style="display: none"></div>
+                    <div id="register3" style="display: none"></div>
+                </div>
+            </div>
+        </div>
+        {% block body %}
+
+        {% endblock %}
+    </div>
 </body>
+<script type="text/javascript">
+const vm = new Vue({
+    el:'#root',
+    data:{
+        System_name:'张',
+        current:'none',
+        clock:''
+    },
+    methods:{
+
+    },
+    watch:{
+        current: {
+
+        }
+    }
+})
+</script>
 </html>
