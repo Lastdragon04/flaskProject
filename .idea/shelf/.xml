@@ -1,0 +1,39 @@
+<changelist name="变更" date="1688140421312" recycled="false">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/变更/shelved.patch" />
+  <option name="DESCRIPTION" value="变更" />
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="static/img/bhhtgyxy.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/变更/bhhtgyxy.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="static/iconfont/iconfont.ttf" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/变更/iconfont.ttf" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="static/iconfont/iconfont.woff" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/变更/iconfont.woff" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="static/iconfont/iconfont.woff2" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/变更/iconfont.woff2" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="static/img/img.png" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/变更/img.png" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="static/img/wansui.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/变更/wansui.jpg" />
+  </binary>
+  <binary>
+    <option name="BEFORE_PATH" />
+    <option name="AFTER_PATH" value="static/img/windows_img.jpg" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/变更/windows_img.jpg" />
+  </binary>
+</changelist>
