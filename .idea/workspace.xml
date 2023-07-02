@@ -4,14 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="弹窗register1基本完成js未编写">
-      <change afterPath="$PROJECT_DIR$/bll.py" afterDir="false" />
+    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="弹窗register1的js编写完成，并且可以发送验证码无误">
+      <change afterPath="$PROJECT_DIR$/templates/Email_captcha.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/normal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,9 +23,9 @@
       <list>
         <option value="Flask Main" />
         <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -221,7 +221,7 @@
       <workItem from="1688224027825" duration="609000" />
       <workItem from="1688225189422" duration="5136000" />
       <workItem from="1688268149717" duration="181000" />
-      <workItem from="1688268508234" duration="14048000" />
+      <workItem from="1688268508234" duration="18668000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -258,7 +258,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688268580134</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="弹窗register1的js编写完成，并且可以发送验证码无误">
+      <created>1688285904741</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1688285904741</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -279,7 +286,8 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="1" />
     <MESSAGE value="弹窗register1基本完成js未编写" />
-    <option name="LAST_COMMIT_MESSAGE" value="弹窗register1基本完成js未编写" />
+    <MESSAGE value="弹窗register1的js编写完成，并且可以发送验证码无误" />
+    <option name="LAST_COMMIT_MESSAGE" value="弹窗register1的js编写完成，并且可以发送验证码无误" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flaskProject$Mail_Part.coverage" NAME="Mail_Part 覆盖结果" MODIFIED="1687976072740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

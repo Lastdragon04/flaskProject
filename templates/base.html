@@ -19,14 +19,14 @@
             <div style="display: flex;justify-content: space-between">
                 <div class="img_full"></div>
                 <div class="window_in_box">
-                    <div id="progress" style="height: 3vh;width: 30vw">
+                    <div id="progress" style="display: block;height: 3vh;width: 30vw">
                         <div class="progress" style="height: 20px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
                     </div>
                     <div id="login" style="display: none">
                         <div style="display: flex;justify-content: center">
-                            <a href="#" @click="change_window('register1')">注册</a>
+                            <a href="#" @click.prevent="change_window('register1')">注册</a>
                         </div>
                     </div>
                     <div id="register1" style="display: none;flex-direction: column">
@@ -90,21 +90,31 @@ const vm = new Vue({
     data:{
         System_name:'张',
         current:'none',
-        clock:''
-
+        clock:'',
+        progress:''
     },
     methods:{
         change_window(need){
-            if(vm.current==='login'){
-                $(`progress`).css('display','none')
-            }
-            else {
-                $(`progress`).css('display','block')
+            switch(need) {
+                case 'login':
+                    this.progress='0'
+                    break;
+                case 'register1':
+                    this.progress='33'
+                    break;
+                case 'register2':
+                    this.progress='66'
+                    break;
+                case 'register3':
+                    this.progress='99'
+                    break;
+              default:
+                alert('被黑客入侵咯')
             }
             vm.current=need
         },
         close_window(){
-            $('#tanchuang').css('display','none')
+            vm.current='none'
         },
         change_some_css(target,judgement){
             let color=''
@@ -216,15 +226,27 @@ const vm = new Vue({
     watch:{
         current: {
             handler(need,old_value){
-                if(old_value!=='none'){
+                if (need!=='none'){
+                    if(old_value!=='none'){
+                        $(`#${old_value}`).css('display','none')
+                    }
+                    else{
+                        $('#tanchuang').css('display','block')
+                    }
+                }
+                else {
                     $(`#${old_value}`).css('display','none')
+                    $('#tanchuang').css('display','none')
+                    return
                 }
-                else{
-                    $('#tanchuang').css('display','block')
-                }
-                $(`#${need}`).css('display','flex')
-
+                $(`#${need}`).css('display','block')
             }
+        },
+        progress:{
+             handler(need){
+                 let progress_div=$(`#progress`)
+                 progress_div.attr('aria-valuenow',need)
+             }
         }
     }
 })

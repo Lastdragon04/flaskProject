@@ -7,6 +7,7 @@
         <h1 class="display-4">欢迎使用{{System_name}}</h1>
         <p class="lead">本系统由flask,Vue,Bootstrap完成</p>
         <hr class="my-4">
-        <a class="btn btn-primary btn-lg" href="#" role="button" @click.prevent="change_window('login')">登录</a>
+        <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('login')">登录</a>
     </div>
+    <button @click="change_window('register2')">直达</button>
 {% endblock %}
