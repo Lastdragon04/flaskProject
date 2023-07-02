@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display-swap');
+﻿@import url('../css/font.css');
 *{
     margin: 0;
     padding: 0;
@@ -82,3 +82,16 @@ a:hover{color:black}
     border-right: 1px solid black;
     letter-spacing: 0.2em;
 }
+.get_captcha{
+    display: flex;
+    flex-direction: row;
+    margin-left: 1vw;
+    gap: 0.5vw;
+}.get_captcha input{
+    width: 4vw;
+    height: 9vh;
+    border-radius: 0.3em;
+    border: 2px solid gray;
+    font-size:2.5em;
+    text-align: center;
+ }

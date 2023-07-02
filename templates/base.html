@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:ime-mode="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="../static/bootstrap-4.6.2-dist/css/bootstrap.css">
 </head>
 <body>
-    <div id="root">
+    <div id="root" @keydown.esc="change_window('none')">
         <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang">
-            <div class="close_window"><a href="javascript:void(0)" @click.prevent="close_window">[esc]关闭窗口</a></div>
+            <div class="close_window"><a href="javascript:void(0)" @click.prevent="change_window('none')">[esc]关闭窗口</a></div>
             <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
 
             <div style="display: flex;justify-content: space-between">
@@ -21,7 +21,7 @@
                 <div class="window_in_box">
                     <div id="progress" style="display: block;height: 3vh;width: 30vw">
                         <div class="progress" style="height: 20px;">
-                            <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="progress-bar" role="progressbar" :style="[progress]" :aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{progress_text}}</div>
                         </div>
                     </div>
                     <div id="login" style="display: none">
@@ -74,7 +74,22 @@
                             <a href="javascript:void (0)" @click="change_window('login')">返回登陆</a>
                         </div>
                     </div>
-                    <div id="register2" style="display: none"></div>
+                    <div id="register2" style="display: none">
+                        <div style="display: flex;flex-direction: column">
+                            <div>
+                                <h3>验证码已发送到您邮箱请注意查收</h3>
+                                <hr>
+                            </div>
+                            <div class="get_captcha">
+                                <input type="text" maxlength="1" required @keyup="focusNextInput" ime-mode:disabled>
+                                <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
+                                <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
+                                <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
+                                <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
+                                <input type="text" maxlength="1" required @keyup.delete="focusPrevInput">
+                            </div>
+                        </div>
+                    </div>
                     <div id="register3" style="display: none"></div>
                 </div>
             </div>
@@ -83,167 +98,179 @@
 
         {% endblock %}
     </div>
-</body>
 <script type="text/javascript">
 const vm = new Vue({
-    el:'#root',
-    data:{
-        System_name:'张',
-        current:'none',
-        clock:'',
-        progress:''
+    el: '#root',
+    data: {
+        System_name: '张',
+        current: 'none',
+        clock: '',
+        progress: {},
+        progress_text: ''
     },
-    methods:{
-        change_window(need){
-            switch(need) {
+    methods: {
+        change_window(need) {
+            let progress_div = $('#progress')
+            switch (need) {
                 case 'login':
-                    this.progress='0'
+                    this.progress = {'width': '0%'}
+                    this.progress_text = ''
                     break;
                 case 'register1':
-                    this.progress='33'
+                    this.progress = {'width': '33%'}
+                    this.progress_text = '设置邮箱，昵称'
                     break;
                 case 'register2':
-                    this.progress='66'
+                    this.progress = {'width': '66%'}
+                    this.progress_text = '获取验证码'
                     break;
                 case 'register3':
-                    this.progress='99'
+                    this.progress = {'width': '100%'}
+                    this.progress_text = '设置密码'
                     break;
-              default:
-                alert('被黑客入侵咯')
+                default:
+                    break
             }
-            vm.current=need
+            vm.current = need
         },
-        close_window(){
-            vm.current='none'
+        close_window() {
+            vm.current = 'none'
         },
-        change_some_css(target,judgement){
-            let color=''
-            if (judgement===true){
-                color='green'
+        change_some_css(target, judgement) {
+            let color = ''
+            if (judgement === true) {
+                color = 'green'
             }
-            if (judgement===false) {
-                color='red'
+            if (judgement === false) {
+                color = 'red'
             }
-            if (judgement===undefined){
-                color='gray'
+            if (judgement === undefined) {
+                color = 'gray'
             }
             target.css({
-                'border':`2px solid ${color}`
+                'border': `2px solid ${color}`
             })
             target.next().css({
-                'color':`${color}`,
+                'color': `${color}`,
             })
         },
-        check_form_all_right(category){
-            let Register_Username=$(`#Register_Username`)
-            let Register_Email=$(`#Register_Email`)
-            let agree1=$(`#agree1`).is(':checked')
-            let agree2=$(`#agree2`).is(':checked')
+        check_form_all_right(category) {
+            let Register_Username = $(`#Register_Username`)
+            let Register_Email = $(`#Register_Email`)
+            let agree1 = $(`#agree1`).is(':checked')
+            let agree2 = $(`#agree2`).is(':checked')
             var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
-            if(category===1){
-                if(Register_Username.val()){
-                    if(Register_Username.val().length<4){
-                    this.change_some_css(Register_Username,false)
+            if (category === 1) {
+                if (Register_Username.val()) {
+                    if (Register_Username.val().length < 4) {
+                        this.change_some_css(Register_Username, false)
+                    } else {
+                        this.change_some_css(Register_Username, true)
                     }
-                    else {
-                        this.change_some_css(Register_Username,true)
-                    }
-                }else {
-                    this.change_some_css(Register_Username,undefined)
+                } else {
+                    this.change_some_css(Register_Username, undefined)
                 }
             }
-            if (category===2){
-                if (Register_Email.val()){
-                    if(reg.test(Register_Email.val())){
-                        this.change_some_css(Register_Email,true)
+            if (category === 2) {
+                if (Register_Email.val()) {
+                    if (reg.test(Register_Email.val())) {
+                        this.change_some_css(Register_Email, true)
+                    } else {
+                        this.change_some_css(Register_Email, false)
                     }
-                    else {
-                        this.change_some_css(Register_Email,false)
-                    }
-                }else{
+                } else {
                     this.change_some_css(Register_Email)
                 }
             }
-            if (category===3){
-                if(agree1===true && agree2===true){
+            if (category === 3) {
+                if (agree1 === true && agree2 === true) {
                     $("#register1_next").removeAttr("disabled");
                 }
-                if(agree1===false || agree2===false){
-                    $("#register1_next").attr("disabled","disabled");
+                if (agree1 === false || agree2 === false) {
+                    $("#register1_next").attr("disabled", "disabled");
                 }
             }
         },
-        alert_window(text,id) {
+        alert_window(text, id) {
             let alert_w = $(`#${id}`);
             alert_w.text(text);
             alert_w.css('display', 'block');
             setTimeout( () => {
-            alert_w.fadeOut('slow');
-          }, 3000);
+                alert_w.fadeOut('slow');
+            }, 3000);
         },
-        register1_next(){
-            let Register_Username=$(`#Register_Username`)
-            let Register_Email=$(`#Register_Email`)
-            let nothing_in_input='1.6px solid rgb(128, 128, 128)'
-            let right_input='1.6px solid rgb(0, 128, 0)'
-            let error_input='1.6px solid rgb(255, 0, 0)'
+        register1_next() {
+            let Register_Username = $(`#Register_Username`)
+            let Register_Email = $(`#Register_Email`)
+            let nothing_in_input = '1.6px solid rgb(128, 128, 128)'
+            let right_input = '1.6px solid rgb(0, 128, 0)'
+            let error_input = '1.6px solid rgb(255, 0, 0)'
             console.log(Register_Username.css('border'))
-            if(Register_Username.css('border')!==nothing_in_input){
-                if(Register_Username.css('border')===error_input){
-                    this.alert_window('用户名Username过短，至少4位','Error_window')
+            if (Register_Username.css('border') !== nothing_in_input) {
+                if (Register_Username.css('border') === error_input) {
+                    this.alert_window('用户名Username过短，至少4位', 'Error_window')
                 }
-                if(Register_Username.css('border')===right_input){
-                    if(Register_Email.css('border')!==nothing_in_input){
-                        if(Register_Email.css('border')===error_input){
-                            this.alert_window('邮箱Email不合法','Error_window')
+                if (Register_Username.css('border') === right_input) {
+                    if (Register_Email.css('border') !== nothing_in_input) {
+                        if (Register_Email.css('border') === error_input) {
+                            this.alert_window('邮箱Email不合法', 'Error_window')
                         } else {
-                            $(`#loading_success`).css('display','block')
-                            let data_dict={'Register_Username':Register_Username.val(),'Register_Email':Register_Email.val()}
-                            if(Register_Email.css('border')===right_input){
-                                $.ajax({
-                                    type:'POST',
-                                    url:'/send_captcha',
-                                    data:data_dict,
-                                    success:function (result){
-                                        $(`#loading_success`).css('display','none')
-                                    },
-                                    error:function (){
-                                        $(`#loading_success`).css('display','none')
-                                        vm.alert_window('系统故障，请联系系统管理员','Error_window')
-                                        }
-                                    })
-                                }
+                            $(`#loading_success`).css('display', 'block')
+                            let data_dict = {
+                                'Register_Username': Register_Username.val(),
+                                'Register_Email': Register_Email.val()
                             }
-                    }else{
-                        this.alert_window('请输入您的邮箱Email','Error_window')
+                            if (Register_Email.css('border') === right_input) {
+                                $.ajax({
+                                    type: 'POST',
+                                    url: '/send_captcha',
+                                    data: data_dict,
+                                    success: function (result) {
+                                        $(`#loading_success`).css('display', 'none')
+                                    },
+                                    error: function () {
+                                        $(`#loading_success`).css('display', 'none')
+                                        vm.alert_window('系统故障，请联系系统管理员', 'Error_window')
+                                    }
+                                })
+                            }
+                        }
+                    } else {
+                        this.alert_window('请输入您的邮箱Email', 'Error_window')
                     }
                 }
-            }else{
-                this.alert_window('请输入您的用户名Username','Error_window')
+            } else {
+                this.alert_window('请输入您的用户名Username', 'Error_window')
             }
+        },
+        focusNextInput(thisinput) {
+            if(thisinput.keyCode!==8 && thisinput.target.value){
+                thisinput.currentTarget.nextElementSibling.focus()
+            }
+        },
+        focusPrevInput(thisinput){
+            thisinput.currentTarget.previousElementSibling.focus()
         }
     },
-    watch:{
+    watch: {
         current: {
-            handler(need,old_value){
-                if (need!=='none'){
-                    if(old_value!=='none'){
-                        $(`#${old_value}`).css('display','none')
+            handler(need, old_value) {
+                if (need !== 'none') {
+                    if (old_value !== 'none') {
+                        $(`#${old_value}`).css('display', 'none')
+                    } else {
+                        $('#tanchuang').css('display', 'block')
                     }
-                    else{
-                        $('#tanchuang').css('display','block')
-                    }
-                }
-                else {
-                    $(`#${old_value}`).css('display','none')
-                    $('#tanchuang').css('display','none')
+                } else {
+                    $(`#${old_value}`).css('display', 'none')
+                    $('#tanchuang').css('display', 'none')
                     return
                 }
-                $(`#${need}`).css('display','block')
+                $(`#${need}`).css('display', 'block')
             }
         },
-
-    }
+    },
 })
 </script>
+</body>
 </html>
