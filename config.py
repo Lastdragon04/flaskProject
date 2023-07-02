@@ -9,6 +9,5 @@
     MAIL_PORT=465
     MAIL_USE_SSL= True
     MAIL_USE_TLS=False
-    MAIL_USERNAME= '3267601295@qq.com'
-    MAIL_PASSWORD= 'ydcbaksykljmdadc'
-    SECRET_KEY='SKJALNFKJAN23136515adasd'
+    MAIL_USERNAME= '1692930439@qq.com'
+    MAIL_PASSWORD= 'unhsvhulyrvaeeei'

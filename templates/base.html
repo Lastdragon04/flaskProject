@@ -14,6 +14,8 @@
     <div id="root">
         <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang">
             <div class="close_window"><a href="javascript:void(0)" @click.prevent="close_window">[esc]关闭窗口</a></div>
+            <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
+
             <div style="display: flex;justify-content: space-between">
                 <div class="img_full"></div>
                 <div class="window_in_box">
@@ -35,18 +37,18 @@
                         <div style="display: flex;justify-content: space-between">
                             <div style="display:flex;flex-direction: column;gap: 3vh;margin-top: 1vh">
                                 <div class="input_box">
-                                    <input type="text" maxlength="20" id="Register_Username" required @change="" data-container="body" data-toggle="popover" data-placement="right" data-content="Right popover">
+                                    <input type="text" maxlength="20" id="Register_Username" required @change="check_form_all_right(1)">
                                     <label for="Register_Username">Username</label><br>
                                 </div>
                                 <div class="input_box">
-                                    <input type="text" maxlength="320" id="Register_Email" required @change=""><label for="Register_Email">Email</label>
+                                    <input type="text" maxlength="320" id="Register_Email" required @change="check_form_all_right(2)"><label for="Register_Email">Email</label>
                                 </div>
                                 <div style="display:flex;justify-content: space-around;">
                                     <div>
-                                        <input type="checkbox" id="agree1"><label for="agree1">隐私政策</label>
+                                        <input type="checkbox" id="agree1" @change="check_form_all_right(3)"><label for="agree1">隐私政策</label>
                                     </div>
                                     <div>
-                                        <input type="checkbox" id="agree2"><label for="agree2">免责声明</label>
+                                        <input type="checkbox" id="agree2" @change="check_form_all_right(3)"><label for="agree2">免责声明</label>
                                     </div>
                                 </div>
                             </div>
@@ -55,7 +57,22 @@
                                 </div>
                             </div>
                         </div>
-                        <div><button type="button" class="btn btn-outline-success">下一步</button></div>
+                        <div style="margin-top: 2vh;margin-bottom: 1vh">
+                            <p style="font-size: small">稍后我们会通过该Email给你发验证码，请务必填写你经常使用的电子邮箱</p>
+                        </div>
+                        <div style="display: flex;justify-content: space-around">
+                            <div style="display:flex;flex-direction:row;gap: 1vw">
+                                <div>
+                                    <button type="button" class="btn btn-outline-success btn-lg" id="register1_next" disabled="disabled" @click="register1_next">下一步</button>
+                                </div>
+                                <div style="padding-top: 1vh;display: none" id="loading_success">
+                                    <div class="spinner-border text-success" role="status">
+                                        <span class="sr-only">Loading...</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="javascript:void (0)" @click="change_window('login')">返回登陆</a>
+                        </div>
                     </div>
                     <div id="register2" style="display: none"></div>
                     <div id="register3" style="display: none"></div>
@@ -74,6 +91,7 @@ const vm = new Vue({
         System_name:'张',
         current:'none',
         clock:''
+
     },
     methods:{
         change_window(need){
@@ -87,6 +105,112 @@ const vm = new Vue({
         },
         close_window(){
             $('#tanchuang').css('display','none')
+        },
+        change_some_css(target,judgement){
+            let color=''
+            if (judgement===true){
+                color='green'
+            }
+            if (judgement===false) {
+                color='red'
+            }
+            if (judgement===undefined){
+                color='gray'
+            }
+            target.css({
+                'border':`2px solid ${color}`
+            })
+            target.next().css({
+                'color':`${color}`,
+            })
+        },
+        check_form_all_right(category){
+            let Register_Username=$(`#Register_Username`)
+            let Register_Email=$(`#Register_Email`)
+            let agree1=$(`#agree1`).is(':checked')
+            let agree2=$(`#agree2`).is(':checked')
+            var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+            if(category===1){
+                if(Register_Username.val()){
+                    if(Register_Username.val().length<4){
+                    this.change_some_css(Register_Username,false)
+                    }
+                    else {
+                        this.change_some_css(Register_Username,true)
+                    }
+                }else {
+                    this.change_some_css(Register_Username,undefined)
+                }
+            }
+            if (category===2){
+                if (Register_Email.val()){
+                    if(reg.test(Register_Email.val())){
+                        this.change_some_css(Register_Email,true)
+                    }
+                    else {
+                        this.change_some_css(Register_Email,false)
+                    }
+                }else{
+                    this.change_some_css(Register_Email)
+                }
+            }
+            if (category===3){
+                if(agree1===true && agree2===true){
+                    $("#register1_next").removeAttr("disabled");
+                }
+                if(agree1===false || agree2===false){
+                    $("#register1_next").attr("disabled","disabled");
+                }
+            }
+        },
+        alert_window(text,id) {
+            let alert_w = $(`#${id}`);
+            alert_w.text(text);
+            alert_w.css('display', 'block');
+            setTimeout( () => {
+            alert_w.fadeOut('slow');
+          }, 3000);
+        },
+        register1_next(){
+            let Register_Username=$(`#Register_Username`)
+            let Register_Email=$(`#Register_Email`)
+            let nothing_in_input='1.6px solid rgb(128, 128, 128)'
+            let right_input='1.6px solid rgb(0, 128, 0)'
+            let error_input='1.6px solid rgb(255, 0, 0)'
+            console.log(Register_Username.css('border'))
+            if(Register_Username.css('border')!==nothing_in_input){
+                if(Register_Username.css('border')===error_input){
+                    this.alert_window('用户名Username过短，至少4位','Error_window')
+                }
+                if(Register_Username.css('border')===right_input){
+                    if(Register_Email.css('border')!==nothing_in_input){
+                        if(Register_Email.css('border')===error_input){
+                            this.alert_window('邮箱Email不合法','Error_window')
+                        } else {
+                            $(`#loading_success`).css('display','block')
+                            let data_dict={'Register_Username':Register_Username.val(),'Register_Email':Register_Email.val()}
+                            if(Register_Email.css('border')===right_input){
+                                $.ajax({
+                                    type:'POST',
+                                    url:'/send_captcha',
+                                    data:data_dict,
+                                    success:function (result){
+                                        $(`#loading_success`).css('display','none')
+                                    },
+                                    error:function (){
+                                        $(`#loading_success`).css('display','none')
+                                        vm.alert_window('系统故障，请联系系统管理员','Error_window')
+                                        }
+                                    })
+                                }
+                            }
+                    }else{
+                        this.alert_window('请输入您的邮箱Email','Error_window')
+                    }
+                }
+            }else{
+                this.alert_window('请输入您的用户名Username','Error_window')
+            }
         }
     },
     watch:{
