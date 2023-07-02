@@ -4,12 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/static/css/font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/normal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-    </list>
+    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -219,7 +214,7 @@
       <workItem from="1688225189422" duration="5136000" />
       <workItem from="1688268149717" duration="181000" />
       <workItem from="1688268508234" duration="20370000" />
-      <workItem from="1688313512472" duration="7830000" />
+      <workItem from="1688313512472" duration="8070000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -277,7 +272,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688299189670</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="验证码的Input可以跳转，但是如果输入法开着的话会跳转两个格子，提交按钮和提示信息没写">
+      <created>1688321718141</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1688321718141</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -300,7 +302,8 @@
     <MESSAGE value="弹窗register1基本完成js未编写" />
     <MESSAGE value="弹窗register1的js编写完成，并且可以发送验证码无误" />
     <MESSAGE value="忘了写到哪了，先交了" />
-    <option name="LAST_COMMIT_MESSAGE" value="忘了写到哪了，先交了" />
+    <MESSAGE value="验证码的Input可以跳转，但是如果输入法开着的话会跳转两个格子，提交按钮和提示信息没写" />
+    <option name="LAST_COMMIT_MESSAGE" value="验证码的Input可以跳转，但是如果输入法开着的话会跳转两个格子，提交按钮和提示信息没写" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flaskProject$Mail_Part.coverage" NAME="Mail_Part 覆盖结果" MODIFIED="1687976072740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
