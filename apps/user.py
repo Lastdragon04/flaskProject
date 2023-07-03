@@ -16,3 +16,14 @@ def register2_get_captcha():
             return 'NO'
         else:
             return 'OK'
+
+
+@bp.route("/register3",methods=['POST'])
+def register3():
+    if request.method=='POST':
+        Username=session['Register_Username']
+        Email=session.get('Register_Email_session')
+        password=request.form['password']
+        print(Username,Email,password)
+        return 'OK'
+

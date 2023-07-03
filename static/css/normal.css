@@ -95,3 +95,10 @@ a:hover{color:black}
     font-size:2.5em;
     text-align: center;
  }
+.input_tip{
+    display: flex;
+    align-items: center;
+    margin-left: 1vw;
+}.input_tip span{
+    color: #a71d2a;
+ }

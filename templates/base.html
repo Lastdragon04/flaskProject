@@ -97,7 +97,37 @@
                             </div>
                         </div>
                     </div>
-                    <div id="register3" style="display: none"></div>
+                    <div id="register3" style="display: none">
+                        <div style="display: flex;flex-direction: column;">
+                            <div>
+                                <h3>到最后一步了吧，可算到了，累死个人，我他妈代码都要写死了</h3>
+                                <hr>
+                            </div>
+                            <div style="display: flex;flex-direction: column;gap: 3vh;margin-top: 2vh">
+                                <div style="display:flex;flex-direction: row;">
+                                    <div class="input_box">
+                                        <input type="password" maxlength="20" id="Register_password" required @change="check_form_all_right(4)" value="">
+                                        <label for="Register_password">Password</label>
+                                    </div>
+                                    <div class="input_tip">
+                                        <span id="Register_password_tip1"></span>
+                                    </div>
+                                </div>
+                                <div style="display:flex;flex-direction: row;">
+                                    <div class="input_box">
+                                        <input type="password" maxlength="20" id="Register_password_confirm" required @change="check_form_all_right(5)" value="">
+                                        <label for="Register_password_confirm">Password_confirm</label><span id="Register_password_confirm_tip"></span>
+                                    </div>
+                                    <div class="input_tip">
+                                        <span id="Register_password_tip2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 3vh">
+                                <button type="button" class="btn btn-outline-success btn-lg" id="register3_next" @click="register3_next">完成，并返回登录</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -162,12 +192,8 @@ const vm = new Vue({
             })
         },
         check_form_all_right(category) {
-            let Register_Username = $(`#Register_Username`)
-            let Register_Email = $(`#Register_Email`)
-            let agree1 = $(`#agree1`).is(':checked')
-            let agree2 = $(`#agree2`).is(':checked')
-            var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
             if (category === 1) {
+                let Register_Username = $(`#Register_Username`)
                 if (Register_Username.val()) {
                     if (Register_Username.val().length < 4) {
                         this.change_some_css(Register_Username, false)
@@ -179,6 +205,8 @@ const vm = new Vue({
                 }
             }
             if (category === 2) {
+                var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$");
+                let Register_Email = $(`#Register_Email`)
                 if (Register_Email.val()) {
                     if (reg.test(Register_Email.val())) {
                         this.change_some_css(Register_Email, true)
@@ -190,11 +218,51 @@ const vm = new Vue({
                 }
             }
             if (category === 3) {
+                let agree1 = $(`#agree1`).is(':checked')
+                let agree2 = $(`#agree2`).is(':checked')
                 if (agree1 === true && agree2 === true) {
                     $("#register1_next").removeAttr("disabled");
                 }
                 if (agree1 === false || agree2 === false) {
                     $("#register1_next").attr("disabled", "disabled");
+                }
+            }
+            if (category === 4) {
+                let Register_Password = $(`#Register_password`)
+                let tip1=$(`#Register_password_tip1`)
+                if (Register_Password.val()) {
+                    if (Register_Password.val().length > 6) {
+                        this.change_some_css(Register_Password, true)
+                        tip1.css('color','rgb(0, 128, 0)')
+                        tip1.text('正确')
+                    } else {
+                        this.change_some_css(Register_Password, false)
+                        tip1.css('color','rgb(255, 0, 0)')
+                        tip1.text('密码至少6位')
+                    }
+                } else {
+                    this.change_some_css(Register_Password, undefined)
+                    tip1.text(' ')
+                }
+            }
+            if (category === 5){
+                let tip2=$(`#Register_password_tip2`)
+                let Register_Password = $(`#Register_password`)
+                let Register_Password_Confirm=$(`#Register_password_confirm`)
+                if (Register_Password_Confirm.val()){
+                    if (Register_Password.val()===Register_Password_Confirm.val()){
+                        this.change_some_css(Register_Password_Confirm, true)
+                        tip2.css('color','rgb(0, 128, 0)')
+                        tip2.text('正确')
+                    }
+                    else {
+                        this.change_some_css(Register_Password_Confirm, false)
+                        tip2.css('color','rgb(255, 0, 0)')
+                        tip2.text('两次密码匹配不一致')
+                    }
+                }else {
+                    this.change_some_css(Register_Password_Confirm, undefined)
+                    tip2.text(' ')
                 }
             }
         },
@@ -233,12 +301,17 @@ const vm = new Vue({
                                     url: '/send_captcha',
                                     data: data_dict,
                                     success: function (result) {
-                                        $(`#loading_success`).css('display', 'none')
-                                        vm.alert_window('验证码已经成功发送到您的邮箱','success')
-                                        vm.change_window('register2')
+                                        if (result==='OK'){
+                                            $(`#loading_success`).css('display', 'none')
+                                            vm.alert_window('验证码已经成功发送到您的邮箱','success')
+                                            vm.change_window('register2')
+                                        }
+                                        else if (result==='Wrong'){
+                                            vm.alert_window('系统故障，请联系系统管理员', 'Error_window')
+                                        }
                                     },
                                     error: function () {
-                                        vm.alert_window('系统故障，请联系系统管理员', 'Error_window')
+                                        vm.alert_window('该邮箱已经被注册', 'Error_window')
                                     }
                                 })
                             }
@@ -271,7 +344,8 @@ const vm = new Vue({
                 data: {'captcha':temp_captcha},
                 success: function (result) {
                     if(result==='OK'){
-                        vm.alert_window('给你小子蒙对了','success')
+                        vm.alert_window('给你小子蒙对了','Success_window')
+                        vm.change_window('register3')
                     }
                     else if(result==='NO'){
                         vm.alert_window('你小子没输入对','Error_window')
@@ -285,6 +359,35 @@ const vm = new Vue({
                 }
             })
         },
+        register3_next(){
+            let Register_Password = $(`#Register_password`)
+            let Register_Password_Confirm=$(`#Register_password_confirm`)
+            let nothing_in_input = '1.6px solid rgb(128, 128, 128)'
+            let right_input = '1.6px solid rgb(0, 128, 0)'
+            let error_input = '1.6px solid rgb(255, 0, 0)'
+            if (Register_Password.css('border')===right_input){
+                if (Register_Password_Confirm.css('border')===right_input){
+                    $.ajax({
+                        type:'POST',
+                        url:'/user/register3',
+                        data:{'password':Register_Password.val()},
+                        success:function (result){
+                            vm.alert_window('注册成功，及将为你跳转到登陆页面。','Success_window')
+                            vm.change_window('login')
+                        },
+                        error:function (){
+                            vm.alert_window('含有非法字符,或注册时间过长。','Error_window')
+                        }
+                    })
+                }else{
+                    vm.alert_window('两次输入的密码不一致','Error_window')
+                }
+            }else if (Register_Password.css('border')===error_input){
+                vm.alert_window(`密码过短，容易被破解，最好大于8位`,'Error_window')
+            }else{
+                vm.alert_window(`密码不能为空，最好大于8位`,'Error_window')
+            }
+        }
     },
     watch: {
         current: {
