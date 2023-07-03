@@ -15,7 +15,7 @@
         <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang">
             <div class="close_window"><a href="javascript:void(0)" @click.prevent="change_window('none')">[esc]关闭窗口</a></div>
             <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
-
+            <div class="alert alert-success" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Success_window"></div>
             <div style="display: flex;justify-content: space-between">
                 <div class="img_full"></div>
                 <div class="window_in_box">
@@ -80,13 +80,20 @@
                                 <h3>验证码已发送到您邮箱请注意查收</h3>
                                 <hr>
                             </div>
-                            <div class="get_captcha">
+                            <div class="get_captcha" style="padding-top: 2vh;padding-bottom: 2vh">
                                 <input type="text" maxlength="1" required @keyup="focusNextInput" ime-mode:disabled>
                                 <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
                                 <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
                                 <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
                                 <input type="text" maxlength="1" required @keyup="focusNextInput" @keyup.delete="focusPrevInput" ime-mode:disabled>
                                 <input type="text" maxlength="1" required @keyup.delete="focusPrevInput">
+                            </div>
+                            <div>
+                                <hr>
+                                <p>请不要把该验证码发给其他人，以免造成您的不必要的人生安全或财产的损失。如非本人操作请忽略此短信。</p>
+                            </div>
+                            <div style="padding-left: 7vw;padding-top: 2vh">
+                                <button type="button" class="btn btn-outline-success btn-lg" id="register2_next" @click="register2_next">下一步</button>
                             </div>
                         </div>
                     </div>
@@ -227,9 +234,10 @@ const vm = new Vue({
                                     data: data_dict,
                                     success: function (result) {
                                         $(`#loading_success`).css('display', 'none')
+                                        vm.alert_window('验证码已经成功发送到您的邮箱','success')
+                                        vm.change_window('register2')
                                     },
                                     error: function () {
-                                        $(`#loading_success`).css('display', 'none')
                                         vm.alert_window('系统故障，请联系系统管理员', 'Error_window')
                                     }
                                 })
@@ -250,7 +258,33 @@ const vm = new Vue({
         },
         focusPrevInput(thisinput){
             thisinput.currentTarget.previousElementSibling.focus()
-        }
+        },
+        register2_next(){
+            let inputs=$(`.get_captcha input`)
+            let temp_captcha=''
+            for(let i=0;i<inputs.length;i++){
+                temp_captcha=temp_captcha+inputs.eq(i).val()
+            }
+            $.ajax({
+                type: 'POST',
+                url: '/user/register2_get_captcha',
+                data: {'captcha':temp_captcha},
+                success: function (result) {
+                    if(result==='OK'){
+                        vm.alert_window('给你小子蒙对了','success')
+                    }
+                    else if(result==='NO'){
+                        vm.alert_window('你小子没输入对','Error_window')
+                    }
+                    else{
+                        vm.alert_window('验证码超时或已被黑客截取了你的验证码抢先注册了','Error_window')
+                    }
+                },
+                error: function () {
+                    vm.alert_window(`被黑客入侵了我真无语,拿了什么跟我说一下`,`Error_window`)
+                }
+            })
+        },
     },
     watch: {
         current: {

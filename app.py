@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session
 from flask_mail import Mail, Message
 from config import Config
-from exts import mail,System_name
+from exts import mail, System_name
 from apps.user import bp as user_bp
 from bll import create_captcha
 
@@ -23,7 +23,7 @@ def index():
 def send_captcha():
     captcha = create_captcha(6)
     Register_Email = request.form.getlist('Register_Email')
-    print(Register_Email)
+    Register_Username = request.form['Register_Username']
     sentence = """<div>
                     <h2>
                         您好:{}
@@ -35,9 +35,13 @@ def send_captcha():
                             {}
                         </div>
                     <p>我们期待您的加入</p>
+                    <p>请不要把该验证码发给其他人，以免造成不必要的安全或财产损失。如非本人操作请忽略此短信。</p>
                 </div>
-                """.format(request.form['Register_Username'],System_name,captcha)
+                """.format(request.form['Register_Username'], System_name, captcha)
     msg = Message(subject='艺源汽车服务中心管理系统', sender='1692930439@qq.com', recipients=Register_Email)
     msg.body = sentence
     mail.send(msg)
+    session['Register_Email_session'] = Register_Email[0]
+    session['Register_Username'] = Register_Username
+    session['captcha'] = captcha
     return 'OK'
