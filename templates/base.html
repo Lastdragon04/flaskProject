@@ -191,6 +191,10 @@ const vm = new Vue({
                 'color': `${color}`,
             })
         },
+        check_input_error(sentence){
+            let illegal=new RegExp("(.+)\\sand\\s(.+)|(.+)\\sor(.+)\\s$")
+            return !illegal.test(sentence);
+        },
         check_form_all_right(category) {
             if (category === 1) {
                 let Register_Username = $(`#Register_Username`)

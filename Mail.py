@@ -2,7 +2,7 @@
 
 
 class Mail:
-    def send_captcha(register_username, system_name, captcha,register_email):
+    def send_captcha(self,register_username, system_name, captcha,register_email):
         sentence = """<div>
                         <h2>
                             您好:{}
