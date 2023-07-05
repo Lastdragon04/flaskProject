@@ -5,7 +5,7 @@ from config import Config
 from flask_migrate import Migrate
 from exts import mail, System_name, db
 from Model import UserModel
-from Mail import Mail
+from Mail import send_captcha
 from apps.user import bp as user_bp
 from bll import create_captcha
 
@@ -32,10 +32,15 @@ def send_captcha():
     Register_Email = request.form.getlist('Register_Email')
     Register_Username = request.form['Register_Username']
     try:
-        X = Mail().send_captcha(Register_Username, System_name, captcha, Register_Email)
+        X = send_captcha(Register_Username, System_name, captcha, Register_Email)
         session['Register_Email_session'] = Register_Email[0]
         session['Register_Username'] = Register_Username
         session['captcha'] = captcha
     except smtplib.SMTPServerDisconnected:
         return 'Wrong'
     return 'OK'
+
+
+@app.context_processor
+def my_context_processor():
+    return {"System_name": System_name}

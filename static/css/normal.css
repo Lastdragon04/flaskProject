@@ -102,3 +102,10 @@ a:hover{color:black}
 }.input_tip span{
     color: #a71d2a;
  }
+.black_a_div_house{
+} .black_a_div_house a:link,
+  .black_a_div_house a:active,
+  .black_a_div_house a:visited,
+  .black_a_div_house a:hover{
+    color: black;
+  }

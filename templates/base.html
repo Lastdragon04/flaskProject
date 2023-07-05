@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <link rel="stylesheet" href="">
     <script src="../static/js/vue.js"></script>
     <script src="../static/js/jquery-3.2.1.min.js"></script>
     <script src="../static/bootstrap-4.6.2-dist/js/bootstrap.bundle.js"></script>
     <link rel="stylesheet" href="../static/css/normal.css">
     <link rel="stylesheet" href="../static/bootstrap-4.6.2-dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../static/iconfont/iconfont.css">
+    <link rel="stylesheet" href="../static/css/font.css">
 </head>
 <body>
     <div id="root" @keydown.esc="change_window('none')">
@@ -24,9 +25,38 @@
                             <div class="progress-bar" role="progressbar" :style="[progress]" :aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">{{progress_text}}</div>
                         </div>
                     </div>
-                    <div id="login" style="display: none">
-                        <div style="display: flex;justify-content: center">
-                            <a href="#" @click.prevent="change_window('register1')">注册</a>
+                    <div id="login" style="display: none;">
+                        <div style="display: flex;flex-direction: column;gap: 3vh;width:31vw;align-items: center">
+                            <div style="display: flex;">
+                                <h3>{{System_name}}</h3>
+                            </div>
+                            <div style="display: flex;flex-direction: column;gap: 3vh;width: 31vw;align-items: center;margin-top: 5vh">
+                                <div style="display: flex;flex-direction: row;gap: 1vw">
+                                    <div>
+                                        <i class="iconfont" style="font-size: 2em;color: gray">&#xe63c;</i>
+                                    </div>
+                                    <div class="input_box">
+                                        <input type="text" maxlength="320" id="Email" required @change="check_form_all_right(1)">
+                                        <label for="Email">Email</label><br>
+                                    </div>
+                                </div>
+                                <div style="display: flex;flex-direction: row;gap: 1vw">
+                                    <div>
+                                        <i class="iconfont" style="font-size: 2em;color: gray">&#xe696;</i>
+                                    </div>
+                                    <div class="input_box">
+                                        <input type="password" maxlength="320" id="Password" required @change="check_form_all_right(2)">
+                                        <label for="Password">password</label>
+                                    </div>
+                                </div>
+                                <div>
+                                    <button type="button" class="btn btn-outline-success btn-lg" @click="to_login">下一步</button>
+                                </div>
+                                <div style="display: flex;justify-content: space-around;width: 31vw" class="black_a_div_house">
+                                    <div><a href="#" @click.prevent="change_window('register1')">注册</a></div>
+                                    <div><a href="#" @click.prevent="change_window('forget_password')">忘记密码</a></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div id="register1" style="display: none;flex-direction: column">
@@ -139,7 +169,7 @@
 const vm = new Vue({
     el: '#root',
     data: {
-        System_name: '张',
+        System_name: '((System_name))',
         current: 'none',
         clock: '',
         progress: {},
@@ -193,7 +223,7 @@ const vm = new Vue({
         },
         check_input_error(sentence){
             let illegal=new RegExp("(.+)\\sand\\s(.+)|(.+)\\sor(.+)\\s$")
-            return !illegal.test(sentence);
+            return illegal.test(sentence);
         },
         check_form_all_right(category) {
             if (category === 1) {
@@ -235,7 +265,7 @@ const vm = new Vue({
                 let Register_Password = $(`#Register_password`)
                 let tip1=$(`#Register_password_tip1`)
                 if (Register_Password.val()) {
-                    if (Register_Password.val().length > 6) {
+                    if (Register_Password.val().length > 5) {
                         this.change_some_css(Register_Password, true)
                         tip1.css('color','rgb(0, 128, 0)')
                         tip1.text('正确')
@@ -302,7 +332,7 @@ const vm = new Vue({
                             if (Register_Email.css('border') === right_input) {
                                 $.ajax({
                                     type: 'POST',
-                                    url: '/send_captcha',
+                                    url: '/user/register2',
                                     data: data_dict,
                                     success: function (result) {
                                         if (result==='OK'){
@@ -376,8 +406,13 @@ const vm = new Vue({
                         url:'/user/register3',
                         data:{'password':Register_Password.val()},
                         success:function (result){
-                            vm.alert_window('注册成功，及将为你跳转到登陆页面。','Success_window')
-                            vm.change_window('login')
+                            if (result==='OK'){
+                                vm.alert_window('注册成功，及将为你跳转到登陆页面。','Success_window')
+                                vm.change_window('login')
+                            }
+                            else {
+                                alert(result)
+                            }
                         },
                         error:function (){
                             vm.alert_window('含有非法字符,或注册时间过长。','Error_window')
@@ -387,10 +422,27 @@ const vm = new Vue({
                     vm.alert_window('两次输入的密码不一致','Error_window')
                 }
             }else if (Register_Password.css('border')===error_input){
-                vm.alert_window(`密码过短，容易被破解，最好大于8位`,'Error_window')
+                vm.alert_window(`密码过短，容易被破解，最好大于6位`,'Error_window')
             }else{
-                vm.alert_window(`密码不能为空，最好大于8位`,'Error_window')
+                vm.alert_window(`密码不能为空，最好大于6位`,'Error_window')
             }
+        },
+        to_login(){
+            let Password=$(`#Password`).val()
+            let Email=$(`#Email`).val()
+            $.ajax({
+                type:'POST',
+                url:`/user/login`,
+                data:{'Email':Email,'Password':Password},
+                success:function (result){
+                    if (result==='OK'){
+                        vm.alert_window('登陆成功','Success_window')
+                    }
+                    else if(result==='Wrong'){
+                        alert('我真就草泥马了，这点B水平还SQL注入拟注入尼玛注入')
+                    }
+                }
+            })
         }
     },
     watch: {
@@ -407,7 +459,7 @@ const vm = new Vue({
                     $('#tanchuang').css('display', 'none')
                     return
                 }
-                $(`#${need}`).css('display', 'block')
+                $(`#${need}`).css('display', 'flex')
             }
         },
     },
