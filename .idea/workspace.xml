@@ -4,19 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/SQL_Defence.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/弹出框测试.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/temp.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mail.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mail.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/font.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/font.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/normal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-    </list>
+    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -237,7 +225,7 @@
       <workItem from="1688268508234" duration="20370000" />
       <workItem from="1688313512472" duration="8070000" />
       <workItem from="1688353001502" duration="14332000" />
-      <workItem from="1688531464994" duration="19933000" />
+      <workItem from="1688531464994" duration="19994000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -330,7 +318,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688555900884</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="登录部分中防SQL注入已经完成，接受完成，现在只差用SQL插入了">
+      <created>1688570940249</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1688570940249</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -358,7 +353,8 @@
     <MESSAGE value="不管有没有bug反正登录界面&#10;是写完了" />
     <MESSAGE value="数据库搭建完毕并且已经能够用ORM模型创建user表" />
     <MESSAGE value="发送验证码部分迁移作为一个新的模块&#10;以后邮箱部分都可以写在这里" />
-    <option name="LAST_COMMIT_MESSAGE" value="发送验证码部分迁移作为一个新的模块&#10;以后邮箱部分都可以写在这里" />
+    <MESSAGE value="登录部分中防SQL注入已经完成，接受完成，现在只差用SQL插入了" />
+    <option name="LAST_COMMIT_MESSAGE" value="登录部分中防SQL注入已经完成，接受完成，现在只差用SQL插入了" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flaskProject$SQL.coverage" NAME="防SQL注入测试 覆盖结果" MODIFIED="1688567632116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
