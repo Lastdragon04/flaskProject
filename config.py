@@ -3,7 +3,7 @@
 
 class Config:
     # 配置参数
-    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql=//root=123654@127.0.0.1=3306/'
+    SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123654@127.0.0.1:3306/reptile_sys'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SECRET_KEY = "aohsnlklnakvavavno"
     # 邮箱配置
