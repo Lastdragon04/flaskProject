@@ -1,15 +1,17 @@
 ﻿from flask import Blueprint, render_template, request, session
 from smtplib import SMTPServerDisconnected
+from werkzeug.security import generate_password_hash, check_password_hash
 from bll import create_captcha
-from exts import System_name
+from exts import System_name, db
 from Mail import send_captcha
 from SQL_Defence import SQL_defend
+from Model import UserModel
 
 bp = Blueprint('user', __name__, url_prefix='/user')
 
 
-@bp.route('/register2', methods=['POST'])
-def register2():
+@bp.route('/register1_send_captcha', methods=['POST'])
+def register1():
     captcha = create_captcha(6)
     Register_Email = request.form.getlist('Register_Email')
     Register_Username = request.form['Register_Username']
@@ -48,6 +50,9 @@ def register3():
             session.pop('Register_Username')
             session.pop('Register_Email_session')
             print(Username, Email, password)
+            user = UserModel(Email=Email, Username=Username, Password=generate_password_hash(password))
+            db.session.add(user)
+            db.session.commit()
             return 'OK'
         except KeyError:
             return '我真草泥马，老子小网站你攻击你妈攻击,他妈学了地点爬虫就给你牛逼死了哈，回去好好再学学你那javascript，有种来攻击老子服务器'
@@ -58,10 +63,17 @@ def Login():
     if request.method == 'POST':
         Password = request.form['Password']
         Email = request.form['Email']
-        Password_Defence = SQL_defend(Email)
         Email_Defence = SQL_defend(Password)
-        if Password_Defence and Email_Defence:
-            #此处还差 SQL插入
-            return 'OK'
+        if Email_Defence:
+            user = UserModel.query.filter_by(Email=Email).first()
+            print(user)
+            if not user:
+                return 'None'
+            else:
+                if check_password_hash(user.Password, Password):
+                    session['Email'] = Email
+                    return 'OK'
+                else:
+                    return 'Error'
         else:
             return 'Wrong'

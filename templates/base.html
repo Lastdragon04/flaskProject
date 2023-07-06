@@ -13,6 +13,7 @@
 </head>
 <body>
     <div id="root" @keydown.esc="change_window('none')">
+
         <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang">
             <div class="close_window"><a href="javascript:void(0)" @click.prevent="change_window('none')">[esc]关闭窗口</a></div>
             <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
@@ -332,7 +333,7 @@ const vm = new Vue({
                             if (Register_Email.css('border') === right_input) {
                                 $.ajax({
                                     type: 'POST',
-                                    url: '/user/register2',
+                                    url: '/user/register1_send_captcha',
                                     data: data_dict,
                                     success: function (result) {
                                         if (result==='OK'){
@@ -341,7 +342,9 @@ const vm = new Vue({
                                             vm.change_window('register2')
                                         }
                                         else if (result==='Wrong'){
-                                            vm.alert_window('系统故障，请联系系统管理员', 'Error_window')
+                                            vm.alert_window('不要搞些花里胡哨的东西，你以为你真行了哈，还SQL注入注入尼玛注入', 'Error_window')
+                                        }else {
+
                                         }
                                     },
                                     error: function () {
@@ -430,19 +433,33 @@ const vm = new Vue({
         to_login(){
             let Password=$(`#Password`).val()
             let Email=$(`#Email`).val()
-            $.ajax({
-                type:'POST',
-                url:`/user/login`,
-                data:{'Email':Email,'Password':Password},
-                success:function (result){
-                    if (result==='OK'){
-                        vm.alert_window('登陆成功','Success_window')
-                    }
-                    else if(result==='Wrong'){
-                        alert('我真就草泥马了，这点B水平还SQL注入拟注入尼玛注入')
-                    }
+            if (Password){
+                if (Email){
+                    $.ajax({
+                        type:'POST',
+                        url:`/user/login`,
+                        data:{'Email':Email,'Password':Password},
+                        success:function (result){
+                            if (result==='OK'){
+                                vm.alert_window('登陆成功','Success_window')
+                                vm.change_window('none')
+                            }
+                            else if(result==='Wrong'){
+                                alert('我真就草泥马了，这点B水平还SQL注入拟注入尼玛注入')
+                            }
+                            else if(result==='Error'){
+                                vm.alert_window(`密码错误`,'Error_window')
+                            }else {
+                                vm.alert_window('邮箱不存在，请先注册','Error_window')
+                            }
+                        }
+                    })
+                }else {
+                    vm.alert_window('请输入密码','Error_window')
                 }
-            })
+            }else {
+                vm.alert_window('请输入请输入邮箱','Error_window')
+            }
         }
     },
     watch: {
