@@ -7,9 +7,7 @@ from Mail import send_captcha
 from SQL_Defence import SQL_defend
 from Model import UserModel
 
-
 bp = Blueprint('user', __name__, url_prefix='/user')
-
 
 
 @bp.route('/register1_send_captcha', methods=['POST'])
@@ -79,7 +77,3 @@ def Login():
                     return 'Error'
         else:
             return 'Wrong'
-@bp.route('/register1', methods=['POST'])
-def register1():
-    return
-
