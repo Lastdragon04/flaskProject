@@ -5,6 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="" />
+
+    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/apps/user.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/flaskProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flaskProject.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -80,6 +91,11 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\img" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\js" />
+    </key>
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static" />
       <recent name="D:\flaskProject\static\img" />
       <recent name="D:\flaskProject\static" />
@@ -230,6 +246,8 @@
       <workItem from="1688610418011" duration="3889000" />
       <workItem from="1688645405191" duration="7000" />
       <workItem from="1688657331598" duration="35000" />
+      <workItem from="1688182563043" duration="1818000" />
+
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>

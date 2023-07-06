@@ -1,4 +1,4 @@
-﻿from datetime import timedelta
+from datetime import timedelta
 
 
 class Config:
@@ -15,3 +15,5 @@ class Config:
     MAIL_USERNAME = '1692930439@qq.com'
     MAIL_PASSWORD = 'unhsvhulyrvaeeei'
     PERMANENT_SESSION_LIFETIME = timedelta(hours=1)
+
+
