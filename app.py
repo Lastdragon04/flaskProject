@@ -3,7 +3,8 @@ from flask_sqlalchemy import SQLAlchemy
 from flask import Flask, render_template, request, session
 from config import Config
 from flask_migrate import Migrate
-from exts import mail, System_name, db
+from exts import mail, db
+from Global_config import System_name,System_logo
 
 from apps.user import bp as user_bp
 
@@ -26,6 +27,6 @@ def index():
 
 @app.context_processor
 def my_context_processor():
-    return {"System_name": System_name}
+    return {"System_name": System_name,"School_logo":System_logo}
 
 

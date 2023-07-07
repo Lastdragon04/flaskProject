@@ -1,13 +1,15 @@
-﻿{% extends 'base.html' %}
+﻿{% extends "base.html" %}
 {% block title %}
     标题
 {% endblock %}
 {% block body%}
     <div class="jumbotron">
         <h1 class="display-4">欢迎使用((System_name))</h1>
-        <p class="lead">本系统由flask,Vue,Bootstrap完成</p>
+        <p class="lead">本系统由flask,Vue,Bootstrap完成，该项目隶属于北华航天工业学院</p>
+        <p class="lead"></p>
         <hr class="my-4">
+        <p>建议登陆后使用更佳</p>
         <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('login')">登录</a>
     </div>
-    <button @click="change_window('register3')">直达</button>
+    <div style="height: 300vh"></div>
 {% endblock %}

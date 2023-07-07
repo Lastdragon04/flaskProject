@@ -10,11 +10,29 @@
     <link rel="stylesheet" href="../static/bootstrap-4.6.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="../static/iconfont/iconfont.css">
     <link rel="stylesheet" href="../static/css/font.css">
-    <title>Title</title>
 </head>
 <body>
-    <div id="root" @keydown.esc="change_window('none')">
+    <div id="root" @keydown.esc="change_window('none')" style=" user-select: none;">
+        <div class="fixed-top">
+            <nav class="navbar navbar-dark bg-dark" style="padding-left: 1.5vw;padding-right: 2.3vw">
+                <div class="d-flex flex-row align-items-center" style="gap: 1vw;">
+                    <div style="height:7vh;width: 18vw;margin-top: -3vh">
+                        <img src="((School_logo))" class="img-fluid" alt="...">
+                    </div>
+                    <div style="margin-bottom: -2vh;">
 
+                    </div>
+                </div>
+                <div style="display: flex;flex-direction:row;right: 0;align-items: center;gap: 2vw">
+                    <div id="USER_INFORMATION">
+                        <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('login')">登录</a>
+                    </div>
+                    <div>
+                        <a href="">注销</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
         <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang">
             <div class="close_window"><a href="javascript:void(0)" @click.prevent="change_window('none')">[esc]关闭窗口</a></div>
             <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
@@ -163,9 +181,11 @@
                 </div>
             </div>
         </div>
-        {% block body %}
+        <div style="overflow-y: scroll;height: 96vh">
+            {% block body %}
 
-        {% endblock %}
+            {% endblock %}
+        </div>
     </div>
 <script type="text/javascript">
 const vm = new Vue({
@@ -430,6 +450,8 @@ const vm = new Vue({
             }else{
                 vm.alert_window(`密码不能为空，最好大于6位`,'Error_window')
             }
+        },
+        change_user_img(){
         },
         to_login(){
             let Password=$(`#Password`).val()

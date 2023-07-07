@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="登陆部分写完，包括SQL注入部分。现在还差忘记密码部分没写">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217.xml" afterDir="false" />
+    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/Global_config.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/User_default.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/logo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/bhhtgyxy.png" beforeDir="false" afterPath="$PROJECT_DIR$/static/img/bhhtgyxy.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +86,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../../../../Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Issue.Navigation" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -89,11 +95,11 @@
       <recent name="D:\flaskProject\static" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\img" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\iconfont" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\js" />
-      <recent name="D:\flaskProject\static\img" />
     </key>
   </component>
   <component name="RunManager" selected="Flask 服务器.flaskProject">
@@ -185,6 +191,9 @@
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\张朝凯\AppData\Roaming\Subversion</configuration>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="默认任务">
       <changelist id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="" />
@@ -236,7 +245,8 @@
       <workItem from="1688657331598" duration="35000" />
       <workItem from="1688182563043" duration="1818000" />
       <workItem from="1688658388673" duration="544000" />
-      <workItem from="1688659096804" duration="690000" />
+      <workItem from="1688659096804" duration="772000" />
+      <workItem from="1688701337361" duration="12490000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -357,7 +367,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688657350314</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="他妈的提交的时候不知道按哪了，给老子整了这么多乱码，现在改完了阿">
+      <created>1688659851265</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1688659851265</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -387,13 +404,14 @@
     <MESSAGE value="发送验证码部分迁移作为一个新的模块&#10;以后邮箱部分都可以写在这里" />
     <MESSAGE value="登录部分中防SQL注入已经完成，接受完成，现在只差用SQL插入了" />
     <MESSAGE value="登陆部分写完，包括SQL注入部分。现在还差忘记密码部分没写" />
-    <option name="LAST_COMMIT_MESSAGE" value="登陆部分写完，包括SQL注入部分。现在还差忘记密码部分没写" />
+    <MESSAGE value="他妈的提交的时候不知道按哪了，给老子整了这么多乱码，现在改完了阿" />
+    <option name="LAST_COMMIT_MESSAGE" value="他妈的提交的时候不知道按哪了，给老子整了这么多乱码，现在改完了阿" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flaskProject$SQL.coverage" NAME="防SQL注入测试 覆盖结果" MODIFIED="1688567632116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flaskProject$Mail_Part.coverage" NAME="Mail_Part 覆盖结果" MODIFIED="1687976072740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flaskProject$wsgi.coverage" NAME="wsgi 覆盖结果" MODIFIED="1685260507227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1688659244546" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1688720689101" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flaskProject$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1688613998573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flaskProject$Flask__app_py_.coverage" NAME="Flask (app.py) 覆盖结果" MODIFIED="1686201720108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

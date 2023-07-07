@@ -2,7 +2,7 @@ from flask import Blueprint, render_template, request, session
 from smtplib import SMTPServerDisconnected
 from werkzeug.security import generate_password_hash, check_password_hash
 from bll import create_captcha
-from exts import System_name, db
+from exts import db
 from Mail import send_captcha
 from SQL_Defence import SQL_defend
 from Model import UserModel

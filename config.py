@@ -17,3 +17,4 @@ class Config:
     PERMANENT_SESSION_LIFETIME = timedelta(hours=1)
 
 
+
