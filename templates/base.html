@@ -19,17 +19,43 @@
                     <div style="height:7vh;width: 18vw;margin-top: -3vh">
                         <img src="((School_logo))" class="img-fluid" alt="...">
                     </div>
-                    <div style="margin-bottom: -2vh;">
-
+                    <div style="display: flex;flex-direction: row;gap: 1vw;justify-content: center;align-items: center">
+                        <div>
+                            <a href="#" class="text-light" style="text-decoration: none;font-size: 1.4em;font-weight: bold">首页</a>
+                        </div>
+                        <div>
+                            <a href="#" class="text-light" style="text-decoration: none;">关于</a>
+                        </div>
+                        <div>
+                            <div class="dropdown">
+                                <a class="text-light" style="text-decoration: none" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                                    下载
+                                </a>
+                                <div class="dropdown-menu bg-dark">
+                                    <a class="dropdown-item text-light" href="#">Windows(32位)</a>
+                                    <a class="dropdown-item text-light" href="#">Windows(64位)</a>
+                                    <a class="dropdown-item text-light" href="#">App</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div style="display: flex;flex-direction:row;right: 0;align-items: center;gap: 2vw">
-                    <div id="USER_INFORMATION">
-                        <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('login')">登录</a>
-                    </div>
-                    <div>
-                        <a href="">注销</a>
-                    </div>
+                <div style="display: flex;flex-direction:row;right: 0;align-items: center;gap: 2vw" id="UserInformation">
+                    {% if Email %}
+                        <div>
+                            <span style="color: white">(( Email ))</span>
+                        </div>
+                        <div>
+                            <a href="">注销</a>
+                        </div>
+                    {% else %}
+                        <div>
+                            <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('login')">登录</a>
+                        </div>
+                        <div>
+                            <a href="">注册</a>
+                        </div>
+                    {% endif %}
                 </div>
             </nav>
         </div>
@@ -361,6 +387,7 @@ const vm = new Vue({
                                             $(`#loading_success`).css('display', 'none')
                                             vm.alert_window('验证码已经成功发送到您的邮箱','success')
                                             vm.change_window('register2')
+                                            window.location.href='/'
                                         }
                                         else if (result==='Wrong'){
                                             vm.alert_window('不要搞些花里胡哨的东西，你以为你真行了哈，还SQL注入注入尼玛注入', 'Error_window')

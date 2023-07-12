@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session
+from flask import Blueprint, render_template, request, session,redirect,url_for
 from smtplib import SMTPServerDisconnected
 from werkzeug.security import generate_password_hash, check_password_hash
 from bll import create_captcha
@@ -6,6 +6,7 @@ from exts import db
 from Mail import send_captcha
 from SQL_Defence import SQL_defend
 from Model import UserModel
+from Global_config import System_name
 
 bp = Blueprint('user', __name__, url_prefix='/user')
 

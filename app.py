@@ -1,12 +1,12 @@
 import smtplib
 from flask_sqlalchemy import SQLAlchemy
-from flask import Flask, render_template, request, session
+from flask import Flask, render_template, request, session, g
 from config import Config
 from flask_migrate import Migrate
 from exts import mail, db
-from Global_config import System_name,System_logo
-
+from Global_config import System_name, System_logo
 from apps.user import bp as user_bp
+from Model import UserModel
 
 app = Flask(__name__)
 app.config.from_object(Config)
@@ -25,8 +25,23 @@ def index():
         return render_template('index.html')
 
 
+@app.route('/1', methods=['GET'])
+def index1():
+    if request.method == 'GET':
+        return render_template('temp.html')
+
+
+@app.before_request
+def before_request():
+    user_email = session.get('Email')
+    if user_email:
+        user = UserModel.query.get(user_email)
+        setattr(g, 'Email', user.Email)
+    else:
+        setattr(g, 'Email', None)
+
+
 @app.context_processor
 def my_context_processor():
-    return {"System_name": System_name,"School_logo":System_logo}
-
-
+    print('my_context_processor.g.Email', g.Email)
+    return {"System_name": System_name, "School_logo": System_logo, 'Email': g.Email}
