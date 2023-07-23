@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="../static/bootstrap-4.6.2-dist/css/bootstrap.css">
     <link rel="stylesheet" href="../static/iconfont/iconfont.css">
     <link rel="stylesheet" href="../static/css/font.css">
+    <script src="../static/js/弹出框测试.js"></script>
 </head>
 <body>
     <div id="root" @keydown.esc="change_window('none')" style=" user-select: none;">
-        <div class="fixed-top">
+        <div class="fixed-top" style="display: block">
             <nav class="navbar navbar-dark bg-dark" style="padding-left: 1.5vw;padding-right: 2.3vw">
                 <div class="d-flex flex-row align-items-center" style="gap: 1vw;">
                     <div style="height:7vh;width: 18vw;margin-top: -3vh">
@@ -21,13 +22,14 @@
                     </div>
                     <div style="display: flex;flex-direction: row;gap: 1vw;justify-content: center;align-items: center">
                         <div>
-                            <a href="#" class="text-light" style="text-decoration: none;font-size: 1.4em;font-weight: bold">首页</a>
+                            <a href="/" class="text-light" style="text-decoration: none;font-size: 1.4em;font-weight: bold">首页</a>
                         </div>
                         <div>
-                            <a href="#" class="text-light" style="text-decoration: none;">关于</a>
+                            <a href="/about" class="text-light" style="text-decoration: none;">关于</a>
                         </div>
                         <div>
                             <div class="dropdown">
+
                                 <a class="text-light" style="text-decoration: none" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                                     下载
                                 </a>
@@ -43,7 +45,10 @@
                 <div style="display: flex;flex-direction:row;right: 0;align-items: center;gap: 2vw" id="UserInformation">
                     {% if Email %}
                         <div>
-                            <span style="color: white">(( Email ))</span>
+                            <img src="(( User_img ))" alt="">
+                        </div>
+                        <div>
+                            <a href="#" class="text-light">(( Email ))</a>
                         </div>
                         <div>
                             <a href="">注销</a>
@@ -207,7 +212,8 @@
                 </div>
             </div>
         </div>
-        <div style="overflow-y: scroll;height: 96vh">
+        <div style="margin-top: 3vh"></div>
+        <div style="overflow-y: scroll;height: 92vh;margin-top: 3vh">
             {% block body %}
 
             {% endblock %}
@@ -219,8 +225,10 @@ const vm = new Vue({
     data: {
         System_name: '((System_name))',
         current: 'none',
+        add_appliance_window:'none',
         clock: '',
         progress: {},
+        user_img:'(( User_img ))',
         progress_text: ''
     },
     methods: {
@@ -492,7 +500,7 @@ const vm = new Vue({
                         success:function (result){
                             if (result==='OK'){
                                 vm.alert_window('登陆成功','Success_window')
-                                vm.change_window('none')
+                                location.reload()
                             }
                             else if(result==='Wrong'){
                                 alert('我真就草泥马了，这点B水平还SQL注入拟注入尼玛注入')
@@ -510,6 +518,9 @@ const vm = new Vue({
             }else {
                 vm.alert_window('请输入请输入邮箱','Error_window')
             }
+        },
+        change_add_appliance_window(need){
+            vm.add_appliance_window=need
         }
     },
     watch: {
@@ -529,6 +540,12 @@ const vm = new Vue({
                 $(`#${need}`).css('display', 'flex')
             }
         },
+        add_appliance_window: {
+            handler(need){
+                $('#Add_appliance_window').css('display', need)
+
+            }
+        }
     },
 })
 </script>

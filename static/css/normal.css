@@ -10,7 +10,7 @@
     display: none;
     width: 50vw;
     height: 60vh;
-    z-index: 10000;
+    z-index: 200000;
     margin-left: 25vw;
     margin-top: 15vh
 }
@@ -109,3 +109,15 @@ a:hover{color:black}
   .black_a_div_house a:hover{
     color: black;
   }
+.Manager_menu{
+    position: absolute;
+    left: 0;
+    width: 30vw;
+}
+.appliances_list{
+    height: 300vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
+    display: flex;
+    flex-direction: row;
+}
