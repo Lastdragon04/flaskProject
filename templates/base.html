@@ -181,7 +181,7 @@
                     <div id="register3" style="display: none">
                         <div style="display: flex;flex-direction: column;">
                             <div>
-                                <h3>到最后一步了吧，可算到了，累死个人，我他妈代码都要写死了</h3>
+                                <h3>设置密码</h3>
                                 <hr>
                             </div>
                             <div style="display: flex;flex-direction: column;gap: 3vh;margin-top: 2vh">
@@ -207,6 +207,21 @@
                             <div style="margin-top: 3vh">
                                 <button type="button" class="btn btn-outline-success btn-lg" id="register3_next" @click="register3_next">完成，并返回登录</button>
                             </div>
+
+                        </div>
+                    </div>
+                    <div id="register4" style="display: none;flex-direction: column;gap: 2vh">
+                        <div>
+                            <div style="display: flex;justify-content: center">
+                                <h3>面部安全识别</h3>
+                            </div>
+                            <hr>
+                        </div>
+                        <div style="height: 30vh">
+
+                        </div>
+                        <div style="display: flex;justify-content: center">
+                            <p style="text-align: center">注意:我们将会对您的脸部进行录制，并不会有任何人看到您。根据中华人名共和国宪法，我们会竭尽全力保护您的利益</p>
                         </div>
                     </div>
                 </div>
@@ -240,17 +255,19 @@ const vm = new Vue({
                     this.progress_text = ''
                     break;
                 case 'register1':
-                    this.progress = {'width': '33%'}
+                    this.progress = {'width': '25%'}
                     this.progress_text = '设置邮箱，昵称'
                     break;
                 case 'register2':
-                    this.progress = {'width': '66%'}
+                    this.progress = {'width': '50%'}
                     this.progress_text = '获取验证码'
                     break;
                 case 'register3':
-                    this.progress = {'width': '100%'}
+                    this.progress = {'width': '75%'}
                     this.progress_text = '设置密码'
                     break;
+                case 'register4':
+                    this.progress = {'width':' 100%'}
                 default:
                     break
             }
@@ -395,10 +412,9 @@ const vm = new Vue({
                                             $(`#loading_success`).css('display', 'none')
                                             vm.alert_window('验证码已经成功发送到您的邮箱','success')
                                             vm.change_window('register2')
-                                            window.location.href='/'
                                         }
                                         else if (result==='Wrong'){
-                                            vm.alert_window('不要搞些花里胡哨的东西，你以为你真行了哈，还SQL注入注入尼玛注入', 'Error_window')
+                                            vm.alert_window('授权码过期，请联系管理员修改', 'Error_window')
                                         }else {
 
                                         }
@@ -467,7 +483,7 @@ const vm = new Vue({
                         success:function (result){
                             if (result==='OK'){
                                 vm.alert_window('注册成功，及将为你跳转到登陆页面。','Success_window')
-                                vm.change_window('login')
+                                vm.change_window('register4')
                             }
                             else {
                                 alert(result)

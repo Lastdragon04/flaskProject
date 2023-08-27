@@ -13,8 +13,8 @@ class Config:
     MAIL_USE_SSL = True
     MAIL_USE_TLS = False
     MAIL_USERNAME = '1692930439@qq.com'
-    MAIL_PASSWORD = 'unhsvhulyrvaeeei'
-    PERMANENT_SESSION_LIFETIME = timedelta(hours=1)
+    MAIL_PASSWORD = 'ukpljixhvnxpchie'
+    PERMANENT_SESSION_LIFETIME = timedelta(hours=0.1)
 
 
 

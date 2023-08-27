@@ -64,6 +64,7 @@ def Login():
     if request.method == 'POST':
         Password = request.form['Password']
         Email = request.form['Email']
+        print(Password)
         Email_Defence = SQL_defend(Password)
         if Email_Defence:
             user = UserModel.query.filter_by(Email=Email).first()

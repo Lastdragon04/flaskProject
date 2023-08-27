@@ -13,6 +13,7 @@ def SQL_defend(SQL_sentence):
         r"((%27)|(\'))drop",  # Regex for detecting SQL Injection with the UNION keyword
         re.IGNORECASE,
     )
+    print(SQL_sentence)
     r = pattern.search(SQL_sentence)
     if r:
         return False
