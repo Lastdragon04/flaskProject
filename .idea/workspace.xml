@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/static/img/aa.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/img/bb.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/echarts.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/video/adc.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/echarts_sample.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/flaskProject.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/flaskProject.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/Enter_face.py" beforeDir="false" afterPath="$PROJECT_DIR$/identify/Enter_face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/identify/start.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/normal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/temp.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -305,7 +293,7 @@
       <workItem from="1693130561479" duration="246000" />
       <workItem from="1693130843693" duration="9626000" />
       <workItem from="1693201383177" duration="1012000" />
-      <workItem from="1693202417225" duration="11475000" />
+      <workItem from="1693202417225" duration="12285000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -461,7 +449,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693137807658</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="后端钩子函数完成">
+      <created>1693219748782</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1693219748782</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
