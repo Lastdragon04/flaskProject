@@ -9,7 +9,7 @@ from PIL import Image
 def face_detect_domo(img):
     gray = cv.cvtColor(img, cv.COLOR_BGR2GRAY)
     face_detect = cv.CascadeClassifier(
-        r'D:\Anaconda3\envs\pachong\Lib\site-packages\cv2\data\haarcascade_frontalface_alt.xml')
+        r'D:\anaconda3\envs\flaskproject_classic\lib\site-packages\cv2\data\haarcascade_frontalface_default.xml')
     face = face_detect.detectMultiScale(gray, 1.02015, 5, 0, (100, 100), (300, 300))
     for x, y, w, h in face:
         cv.rectangle(img, (x, y), (x + w, y + h), color=(0, 0, 255), thickness=2)
@@ -25,7 +25,7 @@ def getImageAndLabels(path):
     imgePaths = [os.path.join(path, f) for f in os.listdir(path)]
     # 加载分类器
     face_dector=cv.CascadeClassifier(
-        r'D:\Anaconda3\envs\pachong\Lib\site-packages\cv2\data\haarcascade_frontalface_alt.xml')
+        r'D:\anaconda3\envs\flaskproject_classic\lib\site-packages\cv2\data\haarcascade_frontalface_default.xml')
     for i in imgePaths:
         #以灰度图的方式打开图片
         PIL_img=Image.open(i).convert('L')

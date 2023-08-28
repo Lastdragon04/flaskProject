@@ -64,12 +64,12 @@
                 </div>
             </nav>
         </div>
-        <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang">
+        <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang" @keyup.esc="change_window('none')">
             <div class="close_window"><a href="javascript:void(0)" @click.prevent="change_window('none')">[esc]关闭窗口</a></div>
             <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
             <div class="alert alert-success" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Success_window"></div>
             <div style="display: flex;justify-content: space-between">
-                <div class="img_full"></div>
+                <div class="img_full shadow-lg p-3 mb-5 bg-white rounded"></div>
                 <div class="window_in_box">
                     <div id="progress" style="display: block;height: 3vh;width: 30vw">
                         <div class="progress" style="height: 20px;">
@@ -205,23 +205,24 @@
                                 </div>
                             </div>
                             <div style="margin-top: 3vh">
-                                <button type="button" class="btn btn-outline-success btn-lg" id="register3_next" @click="register3_next">完成，并返回登录</button>
+                                <button type="button" class="btn btn-outline-success btn-lg" id="register3_next" @click="register3_next">进入人脸识别</button>
                             </div>
 
                         </div>
                     </div>
                     <div id="register4" style="display: none;flex-direction: column;gap: 2vh">
                         <div>
-                            <div style="display: flex;justify-content: center">
-                                <h3>面部安全识别</h3>
+                            <div style="display: flex;justify-content: space-between">
+                                <div><h3>面部安全识别</h3></div>
+                                <div style="display: flex;align-content: center"><button type="button" class="btn btn-outline-success btn-lg" id="register3_next" @click="action">拍照并返回登陆</button></div>
                             </div>
                             <hr>
                         </div>
-                        <div style="height: 30vh">
-
+                        <div style="height: 30vh;display: flex;justify-content: center;margin-top: -2vh">
+                            <video id="media" autoplay></video>
                         </div>
                         <div style="display: flex;justify-content: center">
-                            <p style="text-align: center">注意:我们将会对您的脸部进行录制，并不会有任何人看到您。根据中华人名共和国宪法，我们会竭尽全力保护您的利益</p>
+                            <p style="text-align: center;font-size: small">注意:为了更好的保护您再本网站的财产安全，我们将会对您的脸部进行录制用于登录面部识别，并且不会有任何人看到您。根据中华人名共和国宪法，我们会竭尽全力保护您的利益</p>
                         </div>
                     </div>
                 </div>
@@ -268,6 +269,7 @@ const vm = new Vue({
                     break;
                 case 'register4':
                     this.progress = {'width':' 100%'}
+                    this.progress_text = '面部录入'
                 default:
                     break
             }
@@ -482,7 +484,7 @@ const vm = new Vue({
                         data:{'password':Register_Password.val()},
                         success:function (result){
                             if (result==='OK'){
-                                vm.alert_window('注册成功，及将为你跳转到登陆页面。','Success_window')
+                                vm.alert_window('注册成功，及将为你跳转到人脸识别。','Success_window')
                                 vm.change_window('register4')
                             }
                             else {
@@ -537,6 +539,17 @@ const vm = new Vue({
         },
         change_add_appliance_window(need){
             vm.add_appliance_window=need
+        },
+        action(){
+            const media = $(`#media`)	// video元素
+            const canvas = $(`#canvas`) // canvas元素
+            const context = canvas.getContext('2d')
+            context.drawImage(media, 0, 0)	// 将video在canvas上绘制出来
+            alert('已经替换')
+            canvas.toBlob(blob => {		// 将canvas转换为blob
+                console.log(blob)//此处可以上传文件到后端
+            })
+            this.change_window('login')
         }
     },
     watch: {
@@ -563,6 +576,18 @@ const vm = new Vue({
             }
         }
     },
+    mounted(){
+            const media = document.getElementById('media')	// video元素
+
+
+            navigator.mediaDevices.getUserMedia({video: {width: 480, height: 320}, audio: true}).then(stream => {
+            // 将视频流设置为video元素的源
+            media.srcObject = stream
+            // 低版本浏览器
+            // media.src = window.URL.createObjectURL(stream)
+            media.play()
+        })
+    }
 })
 </script>
 </body>

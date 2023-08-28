@@ -19,7 +19,7 @@ recogizer.read('./trainer/trainer.yml')
 def face_detect_demo(img):
     gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)  # 转换为灰度
     face_detector = cv2.CascadeClassifier(
-        r'D:\Anaconda3\envs\pachong\Lib\site-packages\cv2\data\haarcascade_frontalface_default.xml')
+        r'D:\anaconda3\envs\flaskproject_classic\lib\site-packages\cv2\data\haarcascade_frontalface_default.xml')
     face = face_detector.detectMultiScale(gray, 1.1, 5, cv2.CASCADE_SCALE_IMAGE, (100, 100), (300, 300))
     # face=face_detector.detectMultiScale(gray)
     temp=0
@@ -36,7 +36,10 @@ def face_detect_demo(img):
             cv2.putText(img, str(names[ids]), (x + 10, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 1)
             temp=ids
     cv2.imshow('result', img)
-    return names[temp]
+    if temp==0:
+        return 'unknown'
+    else:
+        return names[temp]
 
 def get_name():
     path = './face_img/id/'
@@ -58,19 +61,23 @@ def identify():
         if not flag:
             break
         name=face_detect_demo(frame)
-        try:
-            if Right[name]!=None and temp_name==name:
-                Right[name]=Right[name]+1
-            else:
-                Right={}
-            if Right[name] > 100:
-                break
-        except KeyError:
-            Right[name]=0
-        temp_name = name
+        if name!='unknown':
+            try:
+                if Right[name]!=None and temp_name==name:
+                    Right[name]=Right[name]+1
+                else:
+                    Right={}
+                if Right[name] > 100:
+                    break
+            except KeyError:
+                Right[name]=0
+            temp_name = name
+        else:
+            Right={}
         if ord('q') == cv2.waitKey(10):
             break
         print(Right)
+
     cv2.destroyAllWindows()
     cap.release()
 # print(names)
