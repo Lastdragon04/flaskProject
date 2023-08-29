@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, request, session,redirect,url_for
+from flask import Blueprint, render_template, request, session, redirect, url_for
 from smtplib import SMTPServerDisconnected
 from werkzeug.security import generate_password_hash, check_password_hash
 from bll import create_captcha
@@ -17,7 +17,7 @@ def register1():
     Register_Email = request.form.getlist('Register_Email')
     Register_Username = request.form['Register_Username']
     try:
-        X = send_captcha(Register_Username, System_name, captcha, Register_Email)
+        X = send_captcha(Register_Username, captcha, Register_Email)
         session['Register_Email_session'] = Register_Email[0]
         session['Register_Username'] = Register_Username
         session['captcha'] = captcha
@@ -79,3 +79,19 @@ def Login():
                     return 'Error'
         else:
             return 'Wrong'
+
+
+@bp.route("/forget_password1", methods=['POST'])
+def forget_password1():
+    if request.method == 'POST':
+        print('找回密码')
+        Email = request.form['Email_onforget']
+        temp=SQL_defend(Email)
+        if temp:
+            user = UserModel.query.filter_by(Email=Email).first()
+            if user:
+                return user.Username
+            else:
+                return 'NONE'
+        else:
+            return 'Warning'

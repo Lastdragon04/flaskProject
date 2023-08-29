@@ -105,7 +105,7 @@
                                 </div>
                                 <div style="display: flex;justify-content: space-around;width: 31vw" class="black_a_div_house">
                                     <div><a href="#" @click.prevent="change_window('register1')">注册</a></div>
-                                    <div><a href="#" @click.prevent="change_window('forget_password')">忘记密码</a></div>
+                                    <div><a href="#" @click.prevent="change_window('forget_password1')">忘记密码</a></div>
                                 </div>
                             </div>
                         </div>
@@ -220,10 +220,36 @@
                         </div>
                         <div style="height: 30vh;display: flex;justify-content: center;margin-top: -2vh">
                             <video id="media" autoplay></video>
+                            <canvas id="photo" width="480" height="320"  style="display: none"></canvas>
                         </div>
                         <div style="display: flex;justify-content: center">
                             <p style="text-align: center;font-size: small">注意:为了更好的保护您再本网站的财产安全，我们将会对您的脸部进行录制用于登录面部识别，并且不会有任何人看到您。根据中华人名共和国宪法，我们会竭尽全力保护您的利益</p>
                         </div>
+                    </div>
+                    <div id="forget_password1" style="display: none;flex-direction: column;gap: 2vh">
+                        <div style="display:flex;justify-content: center;">
+                            <h3>找回密码</h3>
+                        </div>
+                        <div style="margin-top: -2vh">
+                            <hr>
+                        </div>
+                        <div style="display:flex;flex-direction: column;gap: 5vh">
+                            <div style="display: flex;justify-content:center;">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control" id="Email_onforget" placeholder="Your-Email" aria-label="Your-Email" aria-describedby="basic-addon2">
+                                </div>
+                            </div>
+                            <div style="display: flex;flex-direction: column;gap: 2vh">
+                                <button type="button" class="btn btn-outline-primary btn-lg" @click="forget_password(1)">人脸识别找回</button>
+                                <button type="button" class="btn btn-outline-primary btn-lg" @click="forget_password(2)">邮箱验证码找回</button>
+                            </div>
+                            <div style="display: flex;justify-content: space-between">
+                                <div></div>
+                                <div><button type="button" class="btn btn-outline-success btn-lg" @click="change_window('login')">返回登陆</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="forget_password2" style="display: none;flex-direction: column;gap: 2vh">
                     </div>
                 </div>
             </div>
@@ -245,7 +271,8 @@ const vm = new Vue({
         clock: '',
         progress: {},
         user_img:'(( User_img ))',
-        progress_text: ''
+        progress_text: '',
+        canvas:null
     },
     methods: {
         change_window(need) {
@@ -270,6 +297,19 @@ const vm = new Vue({
                 case 'register4':
                     this.progress = {'width':' 100%'}
                     this.progress_text = '面部录入'
+                    break;
+                case 'forget_password1':
+                    this.progress = {'width': '33.3%'}
+                    this.progress_text = '输入邮箱'
+                    break;
+                case 'forget_password2':
+                    this.progress = {'width': '66.6%'}
+                    this.progress_text = '面部识别找回'
+                    break;
+                case 'forget_password2.5':
+                    this.progress = {'width': '66.6%'}
+                    this.progress_text = '验证码找回'
+                    break;
                 default:
                     break
             }
@@ -541,15 +581,38 @@ const vm = new Vue({
             vm.add_appliance_window=need
         },
         action(){
-            const media = $(`#media`)	// video元素
-            const canvas = $(`#canvas`) // canvas元素
-            const context = canvas.getContext('2d')
-            context.drawImage(media, 0, 0)	// 将video在canvas上绘制出来
+            const media = $(`#media`)	// video元
             alert('已经替换')
-            canvas.toBlob(blob => {		// 将canvas转换为blob
+            this.canvas.toBlob(blob => {		// 将canvas转换为blob
                 console.log(blob)//此处可以上传文件到后端
             })
             this.change_window('login')
+        },
+        forget_password(flag){
+            let Email_onforget=$(`#Email_onforget`).val()
+            $.ajax({
+                type:'POST',
+                url:'/user/forget_password1',
+                data:{'Email_onforget':Email_onforget},
+                success(result){
+                    if (result==='Warning'){
+                        vm.alert_window('还SQL注入你是不是有毛病','Error_window')
+                    }
+                    else if(result==='NONE'){
+                        vm.alert_window('该邮箱不存在请先注册','Error_window')
+                    }
+                    else{
+                        vm.alert_window(result,'Success_window')
+                        if(flag===1)
+                        {
+                            vm.change_window('forget_password2')
+                        }
+                        if(flag===2){
+                            vm.change_window('forget_password2.5')
+                        }
+                    }
+                }
+            })
         }
     },
     watch: {
@@ -578,8 +641,8 @@ const vm = new Vue({
     },
     mounted(){
             const media = document.getElementById('media')	// video元素
-
-
+            this.canvas = document.getElementById('photo')
+            let context = this.canvas.getContext('2d')
             navigator.mediaDevices.getUserMedia({video: {width: 480, height: 320}, audio: true}).then(stream => {
             // 将视频流设置为video元素的源
             media.srcObject = stream
