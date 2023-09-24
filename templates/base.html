@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <title>{% block title %}{% endblock %}</title>
-    <script src="../static/js/vue.js"></script>
-    <script src="../static/js/jquery-3.2.1.min.js"></script>
-    <script src="../static/bootstrap-4.6.2-dist/js/bootstrap.bundle.js"></script>
-    <link rel="stylesheet" href="../static/css/normal.css">
-    <link rel="stylesheet" href="../static/bootstrap-4.6.2-dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../static/iconfont/iconfont.css">
-    <link rel="stylesheet" href="../static/css/font.css">
-    <script src="../static/js/弹出框测试.js"></script>
+    <script src="((url_for('static',filename='js/vue.js') ))"></script>
+    <script src="((url_for('static',filename='js/jquery-3.2.1.min.js') ))"></script>
+    <script src="((url_for('static',filename='js/socket.io.js') ))"></script>
+    <script src="((url_for('static',filename='bootstrap-4.6.2-dist/js/bootstrap.bundle.js') ))"></script>
+    <link rel="stylesheet" href="((url_for('static',filename='css/normal.css') ))">
+    <link rel="stylesheet" href="((url_for('static',filename='bootstrap-4.6.2-dist/css/bootstrap.css') ))">
+    <link rel="stylesheet" href="((url_for('static',filename='iconfont/iconfont.css') ))">
+    <link rel="stylesheet" href="((url_for('static',filename='css/font.css') ))">
+    <script src="((url_for('static',filename='js/弹出框测试.js') ))"></script>
 </head>
 <body>
     <div id="root" @keydown.esc="change_window('none')" style=" user-select: none;">
@@ -18,7 +19,9 @@
             <nav class="navbar navbar-dark bg-dark" style="padding-left: 1.5vw;padding-right: 2.3vw">
                 <div class="d-flex flex-row align-items-center" style="gap: 1vw;">
                     <div style="height:7vh;width: 18vw;margin-top: -3vh">
-                        <img src="((School_logo))" class="img-fluid" alt="...">
+                        <a href="https://www.nciae.edu.cn/xxgk/xxjj.htm">
+                            <img src="((School_logo))" class="img-fluid" alt="...">
+                        </a>
                     </div>
                     <div style="display: flex;flex-direction: row;gap: 1vw;justify-content: center;align-items: center">
                         <div>
@@ -43,12 +46,20 @@
                     </div>
                 </div>
                 <div style="display: flex;flex-direction:row;right: 0;align-items: center;gap: 2vw" id="UserInformation">
-                    {% if Email %}
-                        <div>
-                            <img src="(( User_img ))" alt="">
-                        </div>
-                        <div>
-                            <a href="#" class="text-light">(( Email ))</a>
+                    {% if Email and Username %}
+{#                        <div>#}
+{#                            <img src="(( User_img ))" alt="">#}
+{#                        </div>#}
+                        <div class="dropdown">
+                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            ((Username))
+                            </a>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item" href="/user/user_self/((Email))">个人资料</a>
+                                <a class="dropdown-item" href="#">订阅</a>
+                                <a class="dropdown-item" href="/user/logout">切换账号</a>
+                                <a class="dropdown-item" href="#">远程连接授权</a>
+                            </div>
                         </div>
                         <div>
                             <a href="">注销</a>
@@ -58,14 +69,14 @@
                             <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('login')">登录</a>
                         </div>
                         <div>
-                            <a href="">注册</a>
+                            <a href="#" @click.prevent="change_window('register1')">注册</a>
                         </div>
                     {% endif %}
                 </div>
             </nav>
         </div>
         <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang" @keyup.esc="change_window('none')">
-            <div class="close_window"><a href="javascript:void(0)" @click.prevent="change_window('none')">[esc]关闭窗口</a></div>
+            <div class="close_window"><a href="javascript:void(0)" @click.prevent="close_window">[esc]关闭窗口</a></div>
             <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
             <div class="alert alert-success" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Success_window"></div>
             <div style="display: flex;justify-content: space-between">
@@ -207,12 +218,12 @@
                             <div style="margin-top: 3vh">
                                 <button type="button" class="btn btn-outline-success btn-lg" id="register3_next" @click="register3_next">进入人脸识别</button>
                             </div>
-
                         </div>
                     </div>
                     <div id="register4" style="display: none;flex-direction: column;gap: 2vh">
                         <div>
-                            <div style="display: flex;justify-content: space-between">
+                            <div style="display: flex;justify-content: space-around">
+                                <div><button type="button" class="btn btn-outline-success btn-lg" @click="open_camera(0)">开启摄像头</button></div>
                                 <div><h3>面部安全识别</h3></div>
                                 <div style="display: flex;align-content: center"><button type="button" class="btn btn-outline-success btn-lg" id="register3_next" @click="action">拍照并返回登陆</button></div>
                             </div>
@@ -250,12 +261,51 @@
                         </div>
                     </div>
                     <div id="forget_password2" style="display: none;flex-direction: column;gap: 2vh">
+                        <video id="media1" autoplay></video>
+                        <canvas id="photo1" width="480" height="320"  style="display: none"></canvas>
+                        <div class="progress" style="height: 20px;">
+                            <div class="progress-bar progress-bar-striped bg-success" role="progressbar" :style="[progress_face]" :aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                    </div>
+                    <div id="forget_password2_5" style="display: none;flex-direction: column;gap: 2vh">
+                        <h1>龙体欠安，暂不开发</h1>
+                    </div>
+                    <div id="forget_password3"style="display: none;flex-direction: column;gap: 2vh">
+                        <div style="display: flex;flex-direction: column;">
+                            <div>
+                                <h3>设置密码</h3>
+                                <hr>
+                            </div>
+                            <div style="display: flex;flex-direction: column;gap: 3vh;margin-top: 2vh">
+                                <div style="display:flex;flex-direction: row;">
+                                    <div class="input_box">
+                                        <input type="password" maxlength="20" id="Forget_password" required @change="check_form_all_right(6)" value="">
+                                        <label for="Forget_password">Password</label>
+                                    </div>
+                                    <div class="input_tip">
+                                        <span id="Forget_password_tip1"></span>
+                                    </div>
+                                </div>
+                                <div style="display:flex;flex-direction: row;">
+                                    <div class="input_box">
+                                        <input type="password" maxlength="20" id="Forget_password_confirm" required @change="check_form_all_right(7)" value="">
+                                        <label for="Forget_password_confirm">Password_confirm</label><span id="Register_password_confirm_tip"></span>
+                                    </div>
+                                    <div class="input_tip">
+                                        <span id="Forget_password_tip2"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="margin-top: 3vh">
+                                <button type="button" class="btn btn-outline-success btn-lg" id="forget3_next" @click="forget3_next">完成,返回登陆</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
         <div style="margin-top: 3vh"></div>
-        <div style="overflow-y: scroll;height: 92vh;margin-top: 3vh">
+        <div style="height: 300vh;margin-top: 3vh">
             {% block body %}
 
             {% endblock %}
@@ -270,9 +320,12 @@ const vm = new Vue({
         add_appliance_window:'none',
         clock: '',
         progress: {},
+        progress_face:{},
         user_img:'(( User_img ))',
         progress_text: '',
-        canvas:null
+        canvas:null,
+        canvas1:null,
+        socket:null
     },
     methods: {
         change_window(need) {
@@ -306,9 +359,13 @@ const vm = new Vue({
                     this.progress = {'width': '66.6%'}
                     this.progress_text = '面部识别找回'
                     break;
-                case 'forget_password2.5':
+                case 'forget_password2_5':
                     this.progress = {'width': '66.6%'}
                     this.progress_text = '验证码找回'
+                    break;
+                case 'forget_password3':
+                    this.progress = {'width': '100%'}
+                    this.progress_text = '设置新密码'
                     break;
                 default:
                     break
@@ -316,6 +373,8 @@ const vm = new Vue({
             vm.current = need
         },
         close_window() {
+            vm.close_camera(1)
+            vm.close_camera(0)
             vm.current = 'none'
         },
         change_some_css(target, judgement) {
@@ -414,6 +473,44 @@ const vm = new Vue({
                     tip2.text(' ')
                 }
             }
+            if (category === 6) {
+                let Register_Password = $(`#Forget_password`)
+                let tip1=$(`#Forget_password_tip1`)
+                if (Register_Password.val()) {
+                    if (Register_Password.val().length > 5) {
+                        this.change_some_css(Register_Password, true)
+                        tip1.css('color','rgb(0, 128, 0)')
+                        tip1.text('正确')
+                    } else {
+                        this.change_some_css(Register_Password, false)
+                        tip1.css('color','rgb(255, 0, 0)')
+                        tip1.text('密码至少6位')
+                    }
+                } else {
+                    this.change_some_css(Register_Password, undefined)
+                    tip1.text(' ')
+                }
+            }
+            if (category === 7){
+                let tip2=$(`#Forget_password_tip2`)
+                let Forget_Password = $(`#Forget_password`)
+                let Forget_Password_Confirm=$(`#Forget_password_confirm`)
+                if (Forget_Password_Confirm.val()){
+                    if (Forget_Password.val()===Forget_Password_Confirm.val()){
+                        this.change_some_css(Forget_Password_Confirm, true)
+                        tip2.css('color','rgb(0, 128, 0)')
+                        tip2.text('正确')
+                    }
+                    else {
+                        this.change_some_css(Forget_Password_Confirm, false)
+                        tip2.css('color','rgb(255, 0, 0)')
+                        tip2.text('两次密码匹配不一致')
+                    }
+                }else {
+                    this.change_some_css(Register_Password_Confirm, undefined)
+                    tip2.text(' ')
+                }
+            }
         },
         alert_window(text, id) {
             let alert_w = $(`#${id}`);
@@ -444,25 +541,34 @@ const vm = new Vue({
                                 'Register_Username': Register_Username.val(),
                                 'Register_Email': Register_Email.val()
                             }
+                            var temp_num=0
                             if (Register_Email.css('border') === right_input) {
                                 $.ajax({
                                     type: 'POST',
                                     url: '/user/register1_send_captcha',
                                     data: data_dict,
                                     success: function (result) {
+                                        console.log(result)
                                         if (result==='OK'){
                                             $(`#loading_success`).css('display', 'none')
                                             vm.alert_window('验证码已经成功发送到您的邮箱','success')
                                             vm.change_window('register2')
                                         }
                                         else if (result==='Wrong'){
+                                            $(`#loading_success`).css('display', 'none')
                                             vm.alert_window('授权码过期，请联系管理员修改', 'Error_window')
-                                        }else {
-
+                                        }else if(result==='repeat1') {
+                                            $(`#loading_success`).css('display', 'none')
+                                            vm.alert_window('用户名重复','Error_window')
+                                        }
+                                        else {
+                                            $(`#loading_success`).css('display', 'none')
+                                            vm.alert_window('该邮箱已经被注册','Error_window')
                                         }
                                     },
                                     error: function () {
-                                        vm.alert_window('该邮箱已经被注册', 'Error_window')
+                                        $(`#loading_success`).css('display', 'none')
+                                        vm.alert_window('发生未知错误', 'Error_window')
                                     }
                                 })
                             }
@@ -577,18 +683,43 @@ const vm = new Vue({
                 vm.alert_window('请输入请输入邮箱','Error_window')
             }
         },
-        change_add_appliance_window(need){
-            vm.add_appliance_window=need
-        },
         action(){
             const media = $(`#media`)	// video元
-            alert('已经替换')
-            this.canvas.toBlob(blob => {		// 将canvas转换为blob
-                console.log(blob)//此处可以上传文件到后端
+            const canvas= document.getElementById('photo')
+            var v = document.querySelector('video')
+            var ctx = canvas.getContext('2d')
+            ctx.drawImage(v, 0, 0, 480, 320)
+            var oGrayImg = canvas.toDataURL('image/jpeg')
+            console.log(oGrayImg)
+            var form = new FormData();
+            form.append("file", oGrayImg);
+            console.log(form)
+            $.ajax({
+                type: 'POST',
+                url: '/user/register4_enter_face',
+                data: form,
+                processData: false,   // 不处理发送的数据
+                contentType: false,   // 不设置Content-Type请求头
+                success(result) {
+                   if(result==='ERROR'){
+                       vm.alert_window('TMD出错了','Error_window')
+                   }
+                   else if(result==='Too much'){
+                       vm.alert_window('人脸过多','Error_window')
+                   }
+                   else if(result==='None'){
+                       vm.alert_window('未检测到人脸，请重试','Error_window')
+                   }
+                   else {
+                       vm.alert_window('金色传说，注册完成','Success_window')
+                       vm.change_window('login')
+                       vm.close_camera(0)
+                   }
+                },
             })
-            this.change_window('login')
         },
         forget_password(flag){
+            console.log(flag)
             let Email_onforget=$(`#Email_onforget`).val()
             $.ajax({
                 type:'POST',
@@ -606,13 +737,100 @@ const vm = new Vue({
                         if(flag===1)
                         {
                             vm.change_window('forget_password2')
+                            vm.open_camera(1)
                         }
                         if(flag===2){
-                            vm.change_window('forget_password2.5')
+                            vm.change_window('forget_password2_5')
                         }
                     }
                 }
             })
+            },
+        open_camera(temp){
+            if(temp===0){
+                vm.media = document.getElementById('media')	// video元素
+                vm.canvas = document.getElementById('photo')
+            }
+            else {
+                vm.media = document.getElementById('media1')	// video1元素
+                vm.canvas = document.getElementById('photo1')//
+            }
+            navigator.mediaDevices.getUserMedia({video: {width: 480, height: 320}, audio: true}).then(stream => {
+            // 将视频流设置为video元素的源
+            vm.media.srcObject = stream
+            // 低版本浏览器
+            // media.src = window.URL.createObjectURL(stream)
+            vm.media.play()
+            if (temp===1) {
+                vm.socket = io();
+                let intervalId = setInterval(
+                    () => {
+                    vm.canvas.getContext('2d').drawImage(vm.media, 0, 0);
+                    const data = vm.canvas.toDataURL('image/jpeg');
+                    vm.socket.emit('video_frame1', data, function (result) {
+                        if (result === 'success') {
+                            clearInterval(intervalId);
+                            vm.alert_window('识别成功', 'Success_window')
+                            vm.socket.disconnect()
+                            vm.close_camera(1)
+                            vm.change_window('forget_password3')
+                        } else {
+                            if (result<-50){
+                                vm.close_camera(1)
+                                vm.change_window('login')
+                                vm.alert_window('识别失败','Error_window')
+                            }
+                            vm.progress_face={'width': result*2+'%'}
+                        }
+                    });  // 发送 'video_frame' 事件至服务器
+                }, 100);  // 每100毫秒发送一次帧
+            }
+            }).catch(err => {
+                vm.alert_window('摄像头被占用啦，你是不是跟你女朋友打电话呢啊？','Error_window')
+            });
+        },
+        close_camera(temp){
+            if(temp===0){
+                vm.media = document.getElementById('media')	// video元素
+            }
+            else {
+                vm.media = document.getElementById('media1')	// video元素
+            }
+            if (vm.media && vm.media.srcObject) {
+                let tracks = vm.media.srcObject.getTracks();
+                tracks.forEach(track => track.stop());
+                vm.media.srcObject = null;
+                vm.socket.disconnect()
+            }
+        },
+        forget3_next(){
+            const password=$(`#Forget_password`).val()
+            const password_conform=$(`#Forget_password_confirm`).val()
+            console.log(password)
+            console.log(password_conform)
+            if (password===password_conform){
+                var data_dict={'password':password}
+                $.ajax({
+                    type:'POST',
+                    url:'/user/forget_password3',
+                    data:data_dict,
+                    success(result){
+                        if (result==='OK'){
+                            vm.alert_window('成功，你他娘的太傻逼了，自己密码都会忘','Success_window')
+                            vm.change_window('login')
+                        }
+                        else if (result==='Warning'){
+                            alert('我真就草泥马了，这点B水平还SQL注入拟注入尼玛注入')
+                        }
+                        else{
+                            vm.alert_window(result,'Error_window')
+                        }
+                    }
+                })
+            }
+            else {
+                vm.alert_window('两次密码输入不一致','Error_window')
+            }
         }
     },
     watch: {
@@ -632,24 +850,12 @@ const vm = new Vue({
                 $(`#${need}`).css('display', 'flex')
             }
         },
-        add_appliance_window: {
-            handler(need){
-                $('#Add_appliance_window').css('display', need)
-
-            }
-        }
     },
     mounted(){
-            const media = document.getElementById('media')	// video元素
-            this.canvas = document.getElementById('photo')
-            let context = this.canvas.getContext('2d')
-            navigator.mediaDevices.getUserMedia({video: {width: 480, height: 320}, audio: true}).then(stream => {
-            // 将视频流设置为video元素的源
-            media.srcObject = stream
-            // 低版本浏览器
-            // media.src = window.URL.createObjectURL(stream)
-            media.play()
-        })
+        var canvas=document.getElementById('photo')
+        var context = canvas.getContext('2d')
+        var canvas1=document.getElementById('photo1')
+        var context1 = canvas1.getContext('2d')
     }
 })
 </script>

@@ -1,0 +1,8 @@
+﻿flask
+werkzeug
+flask_migrate
+flask_sqlalchemy
+base64
+io
+re
+pillow

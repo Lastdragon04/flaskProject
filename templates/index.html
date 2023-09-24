@@ -3,6 +3,7 @@
     标题
 {% endblock %}
 {% block body%}
+    <link rel="stylesheet" href="../static/css/best.css">
     <div class="jumbotron">
         <div>
             <h1 class="display-4">欢迎使用((System_name))</h1>
@@ -11,16 +12,8 @@
             <p class="lead">比如："小Y同学，请帮我打开空调"</p>
             <hr class="my-4">
             <p>建议登陆后使用更佳</p>
-            <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('register4')">添加电器</a>
+
         </div>
-    </div>
-    <button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
-    <div class="appliances_list">
-        {% if Email %}
-            aaa
-        {% else %}
-            bbb
-        {% endif %}
     </div>
     <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="Add_appliance_window" style="display: none;left: 0;top: 0">
         <div class="close_window"><a href="#" @click.prevent="change_add_appliance_window('none')">[esc]关闭窗口</a></div>

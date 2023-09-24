@@ -5,12 +5,50 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/check.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identify/face_img/id/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/identify/temp.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/socket.io.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/video/aa.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/user_self.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/依赖文件" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/sys.zb4BAA.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Global_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Global_config.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Mail.py" beforeDir="false" afterPath="$PROJECT_DIR$/Mail.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bll.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/identify/Enter_face.py" beforeDir="false" afterPath="$PROJECT_DIR$/identify/Enter_face.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/identify/face_img/id/0.zck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/identify/face_img/id/1.mjf.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/identify/face_img/id/2.zck.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/identify/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/identify/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/identify/trainer/trainer.yml" beforeDir="false" afterPath="$PROJECT_DIR$/identify/trainer/trainer.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/01aa19126ae4_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/8b11ab026458_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/d861bfee4104_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/fc63ad167f9e_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/087fdc3f5342_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/normal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/弹出框测试.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/弹出框测试.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Email_captcha.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/Mannager.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/temp.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +109,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -81,28 +119,25 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../../../../Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\css" />
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\video" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\js" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\img" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static" />
-      <recent name="D:\flaskProject\static\img" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify" />
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify\trainer" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\video" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\img" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\iconfont" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.user">
-    <configuration name="base.html (1)" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/workspace.xml/templates/base.html" useBuiltInWebServerPort="true">
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Flask 服务器.flaskProject">
     <configuration name="temp.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/workspace.xml/templates/temp.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
@@ -120,6 +155,72 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/identify/Enter_face.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Enter_face" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flaskProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/identify/trainer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify\Enter_face.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Enter_face" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flaskProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/identify/trainer" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify\Enter_face.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="app" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="flaskProject" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/app.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -150,7 +251,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="user" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="flaskProject" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -158,12 +259,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apps" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/identify" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/apps/user.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/identify/temp.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,19 +291,19 @@
     </configuration>
     <list>
       <item itemvalue="Flask 服务器.flaskProject" />
-      <item itemvalue="JavaScript 调试.base.html (1)" />
       <item itemvalue="JavaScript 调试.temp.html" />
       <item itemvalue="Python.Enter_face" />
       <item itemvalue="Python.start" />
-      <item itemvalue="Python.user" />
+      <item itemvalue="Python.temp" />
+      <item itemvalue="Python.app" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.user" />
-        <item itemvalue="JavaScript 调试.base.html (1)" />
-        <item itemvalue="JavaScript 调试.temp.html" />
-        <item itemvalue="Python.Enter_face" />
         <item itemvalue="Python.start" />
+        <item itemvalue="Python.app" />
+        <item itemvalue="Python.Enter_face" />
+        <item itemvalue="Python.temp" />
+        <item itemvalue="JavaScript 调试.temp.html" />
       </list>
     </recent_temporary>
   </component>
@@ -304,7 +405,65 @@
       <workItem from="1693290029076" duration="11000" />
       <workItem from="1693290157777" duration="46000" />
       <workItem from="1693290259517" duration="178000" />
-      <workItem from="1693295958098" duration="2404000" />
+      <workItem from="1693295958098" duration="3170000" />
+      <workItem from="1693303022400" duration="756000" />
+      <workItem from="1693303832766" duration="46000" />
+      <workItem from="1693303904447" duration="742000" />
+      <workItem from="1693309129150" duration="4510000" />
+      <workItem from="1693365958633" duration="4591000" />
+      <workItem from="1693385491735" duration="73000" />
+      <workItem from="1693385670092" duration="135000" />
+      <workItem from="1693390236733" duration="8706000" />
+      <workItem from="1693442174442" duration="6644000" />
+      <workItem from="1693460873224" duration="11021000" />
+      <workItem from="1693476045354" duration="9754000" />
+      <workItem from="1693541065521" duration="3336000" />
+      <workItem from="1693549720185" duration="1025000" />
+      <workItem from="1693558034072" duration="9970000" />
+      <workItem from="1693630149767" duration="4390000" />
+      <workItem from="1693714275908" duration="501000" />
+      <workItem from="1693714793255" duration="188000" />
+      <workItem from="1693719881743" duration="21000" />
+      <workItem from="1693722497513" duration="989000" />
+      <workItem from="1693727740388" duration="5861000" />
+      <workItem from="1693748110119" duration="3498000" />
+      <workItem from="1693806046948" duration="38000" />
+      <workItem from="1693806110333" duration="17923000" />
+      <workItem from="1693827103928" duration="63000" />
+      <workItem from="1693893848978" duration="11450000" />
+      <workItem from="1693978299590" duration="985000" />
+      <workItem from="1693979388952" duration="274000" />
+      <workItem from="1693980112714" duration="3268000" />
+      <workItem from="1694065677676" duration="767000" />
+      <workItem from="1694069130446" duration="314000" />
+      <workItem from="1694070622561" duration="2281000" />
+      <workItem from="1694159917579" duration="3260000" />
+      <workItem from="1694167712958" duration="2565000" />
+      <workItem from="1694324508693" duration="539000" />
+      <workItem from="1694325486925" duration="3013000" />
+      <workItem from="1694341948293" duration="6379000" />
+      <workItem from="1694349349860" duration="787000" />
+      <workItem from="1694414750300" duration="4000" />
+      <workItem from="1694414799701" duration="40000" />
+      <workItem from="1694490190353" duration="869000" />
+      <workItem from="1694494004831" duration="349000" />
+      <workItem from="1694498853556" duration="715000" />
+      <workItem from="1694513327056" duration="546000" />
+      <workItem from="1694513898531" duration="150000" />
+      <workItem from="1694514122487" duration="3228000" />
+      <workItem from="1694575417458" duration="19000" />
+      <workItem from="1694583408497" duration="2213000" />
+      <workItem from="1694837551532" duration="6929000" />
+      <workItem from="1695014463492" duration="1969000" />
+      <workItem from="1695102760392" duration="2039000" />
+      <workItem from="1695125607658" duration="5705000" />
+      <workItem from="1695188622427" duration="10074000" />
+      <workItem from="1695517440020" duration="704000" />
+      <workItem from="1695523775519" duration="1844000" />
+      <workItem from="1695542023072" duration="784000" />
+      <workItem from="1695544621678" duration="10000" />
+      <workItem from="1695556561383" duration="1226000" />
+      <workItem from="1695558624938" duration="302000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -474,7 +633,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693220365545</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="后端钩子函数完成">
+      <created>1693298385628</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1693298385628</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -509,27 +675,19 @@
     <MESSAGE value="后端钩子函数完成" />
     <option name="LAST_COMMIT_MESSAGE" value="后端钩子函数完成" />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/identify/start.py</url>
-          <line>59</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flaskProject$SQL.coverage" NAME="防SQL注入测试 覆盖结果" MODIFIED="1688567632116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/workspace_xml$start.coverage" NAME="start 覆盖结果" MODIFIED="1693211627635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify" />
     <SUITE FILE_PATH="coverage/flaskProject$Mail_Part.coverage" NAME="Mail_Part 覆盖结果" MODIFIED="1687976072740" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/workspace_xml$temp.coverage" NAME="temp 覆盖结果" MODIFIED="1693480092420" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify" />
+    <SUITE FILE_PATH="coverage/flaskProject$Flask__app_py_.coverage" NAME="Flask (app.py) 覆盖结果" MODIFIED="1686201720108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/workspace_xml$Enter_face__1_.coverage" NAME="Enter_face (1) 覆盖结果" MODIFIED="1693468842811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify/trainer" />
+    <SUITE FILE_PATH="coverage/workspace_xml$start.coverage" NAME="start 覆盖结果" MODIFIED="1693812134120" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify" />
     <SUITE FILE_PATH="coverage/flaskProject$wsgi.coverage" NAME="wsgi 覆盖结果" MODIFIED="1685260507227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/workspace_xml$1.coverage" NAME="1 覆盖结果" MODIFIED="1688969092449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/templates" />
-    <SUITE FILE_PATH="coverage/workspace_xml$user.coverage" NAME="user 覆盖结果" MODIFIED="1693297023721" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps" />
-    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1693296821329" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/workspace_xml$user.coverage" NAME="user 覆盖结果" MODIFIED="1693303030832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps" />
+    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1695558781914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flaskProject$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1688613998573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/flaskProject$Flask__app_py_.coverage" NAME="Flask (app.py) 覆盖结果" MODIFIED="1686201720108" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/workspace_xml$Enter_face.coverage" NAME="Enter_face 覆盖结果" MODIFIED="1693211631004" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify" />
+    <SUITE FILE_PATH="coverage/workspace_xml$Enter_face.coverage" NAME="Enter_face 覆盖结果" MODIFIED="1693484029945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify" />
+    <SUITE FILE_PATH="coverage/workspace_xml$app.coverage" NAME="app 覆盖结果" MODIFIED="1693731094859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -6,7 +6,7 @@
     font-family: 'Poppins',sans-serif;
 }
 .out_window{
-    position: absolute;
+    position: fixed;
     display: none;
     width: 50vw;
     height: 60vh;
