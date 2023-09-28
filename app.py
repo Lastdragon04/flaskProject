@@ -8,13 +8,14 @@ import jinja2
 from check import check_login
 from config import Config
 from flask_migrate import Migrate
-from exts import mail, db
+from exts import mail, db,admin
 from Global_config import System_name, get_System_logo, XiaoY
 from apps.user import bp as user_bp
 from Model import UserModel
 
 from flask_socketio import SocketIO, send, emit
 from flask_request_id import RequestID
+
 
 import eventlet
 
@@ -23,6 +24,7 @@ eventlet.monkey_patch()
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config.from_object(Config)
 
+admin.init_app(app)
 mail.init_app(app)
 socketio = SocketIO()
 socketio.init_app(app, cors_allowed_origins='*')
@@ -32,9 +34,8 @@ migrate = Migrate(app, db)
 temp_request = RequestID(app)
 
 app.register_blueprint(user_bp)
-app.jinja_env.variable_start_string = '(('
-app.jinja_env.variable_end_string = '))'
-app.jinja_env.undefined = jinja2.StrictUndefined
+
+
 
 @app.route('/', methods=['GET'])
 def index():
@@ -42,10 +43,11 @@ def index():
         return render_template('index.html')
 
 
-@app.route('/about', methods=['GET'])
-def about():
+@app.route('/docs', methods=['GET'])
+@check_login
+def docs():
     if request.method == 'GET':
-        return render_template('about_us.html')
+        return render_template('index.html')
 
 
 @app.before_request
@@ -53,7 +55,9 @@ def before_request():
     Email = session.get('Email')
     Username = session.get('Username')
     if Email and Username:
-        user = UserModel.query.filter_by(Email=Email).first()
+        user = UserModel.query.filter_by(Email=Email,Username=Username).first()
+        user.Status='Login'
+        db.session.commit()
         setattr(g, 'Email', user.Email)
         setattr(g, 'Username', user.Username)
     else:
@@ -130,6 +134,11 @@ def handle_video_frame(data):
 def handle_disconnect():
     session.pop('Forget_Email')
     print("客户端已断开")
+
+
+@app.before_request
+def log_each_request():
+    app.logger.info('method:{},path:{},ip:{},user:{}'.format(request.method, request.path, request.remote_addr,session.get('Email')))
 
 
 if __name__ == "__main__":

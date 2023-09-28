@@ -1,18 +1,17 @@
 ﻿{% extends "base.html" %}
 {% block title %}
-    标题
+    首页
 {% endblock %}
 {% block body%}
-    <link rel="stylesheet" href="../static/css/best.css">
     <div class="jumbotron">
         <div>
-            <h1 class="display-4">欢迎使用((System_name))</h1>
+            <h1 class="display-4">欢迎使用{{ System_name }}</h1>
             <p class="lead">本系统由flask,Vue,Bootstrap完成，该项目隶属于北华航天工业学院</p>
             <p class="lead">您可以呼叫<a tabindex="0"  role="button" data-toggle="popover" data-trigger="focus" title="人工智障小Y" data-content="该人工智障由20级学长打造">小Y</a>，<a tabindex="0"  role="button" data-toggle="popover" data-trigger="focus" title="人工智障小Y" data-content="该人工智障由20级学长打造">小Y</a>会识别你的语音来完成电器控制</p>
             <p class="lead">比如："小Y同学，请帮我打开空调"</p>
             <hr class="my-4">
-            <p>建议登陆后使用更佳</p>
-
+            <p class="lead">在此之前您需要准备一个树莓派，点击Get_start即可开始教程</p>
+            <button type="button" class="btn btn-outline-success btn-lg" onclick="">连接派派</button>
         </div>
     </div>
     <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="Add_appliance_window" style="display: none;left: 0;top: 0">

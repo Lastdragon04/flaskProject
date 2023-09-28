@@ -5,50 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/other.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/check.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/identify/face_img/id/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/identify/temp.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/base.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/socket.io.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/video/aa.mp4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/user_self.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/依赖文件" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/information_schema.FNRwLQ.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/7fe28241-3d08-4a11-a832-faf836eaf217/storage_v2/_src_/schema/sys.zb4BAA.zip" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/identify/face_img/id/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/migrations/versions/a957ffbd973b_.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/关于flask" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/927a6e2b-7872-440b-94d6-e3e5be8801d3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/927a6e2b-7872-440b-94d6-e3e5be8801d3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Global_config.py" beforeDir="false" afterPath="$PROJECT_DIR$/Global_config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bll.py" beforeDir="false" afterPath="$PROJECT_DIR$/bll.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/check.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/Enter_face.py" beforeDir="false" afterPath="$PROJECT_DIR$/identify/Enter_face.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/face_img/id/0.zck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/face_img/id/1.mjf.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/face_img/id/2.zck.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/start.py" beforeDir="false" afterPath="$PROJECT_DIR$/identify/start.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/identify/face_img/id/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/identify/face_img/id/1.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/identify/trainer/trainer.yml" beforeDir="false" afterPath="$PROJECT_DIR$/identify/trainer/trainer.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/01aa19126ae4_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/8b11ab026458_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/d861bfee4104_.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/fc63ad167f9e_.py" beforeDir="false" afterPath="$PROJECT_DIR$/migrations/versions/087fdc3f5342_.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/087fdc3f5342_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/d861bfee4104_.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/normal.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/弹出框测试.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/弹出框测试.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Email_captcha.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/Mannager.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/弹出框测试.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/out_box.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/temp.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/user_self.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_self.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,8 +38,8 @@
       <list>
         <option value="Flask Main" />
         <option value="CSS File" />
-        <option value="JavaScript File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
         <option value="HTML File" />
       </list>
     </option>
@@ -463,7 +441,12 @@
       <workItem from="1695542023072" duration="784000" />
       <workItem from="1695544621678" duration="10000" />
       <workItem from="1695556561383" duration="1226000" />
-      <workItem from="1695558624938" duration="302000" />
+      <workItem from="1695558624938" duration="3157000" />
+      <workItem from="1695606842993" duration="9748000" />
+      <workItem from="1695627406052" duration="7483000" />
+      <workItem from="1695642813978" duration="2489000" />
+      <workItem from="1695717431154" duration="864000" />
+      <workItem from="1695867660734" duration="3412000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -685,7 +668,7 @@
     <SUITE FILE_PATH="coverage/flaskProject$wsgi.coverage" NAME="wsgi 覆盖结果" MODIFIED="1685260507227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/workspace_xml$1.coverage" NAME="1 覆盖结果" MODIFIED="1688969092449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/templates" />
     <SUITE FILE_PATH="coverage/workspace_xml$user.coverage" NAME="user 覆盖结果" MODIFIED="1693303030832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps" />
-    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1695558781914" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1695867807849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flaskProject$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1688613998573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/workspace_xml$Enter_face.coverage" NAME="Enter_face 覆盖结果" MODIFIED="1693484029945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify" />
     <SUITE FILE_PATH="coverage/workspace_xml$app.coverage" NAME="app 覆盖结果" MODIFIED="1693731094859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

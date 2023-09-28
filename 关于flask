@@ -1,0 +1,6 @@
+﻿flask-Amine 后台管理系统
+flask-cache 连接redis
+flask-cors ajax跨域
+flask-user 用户管理权限管理
+flask-Snow 生成全局唯一值
+flask-Uploads 上传文件大小格式

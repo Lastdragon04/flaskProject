@@ -13,6 +13,5 @@ def check_login(func):
         else:
             # 未登录重定向到登录页面
             print('未登录')
-            return redirect(url_for('index'))
-
+            return redirect(url_for('docs'))
     return wrapper

@@ -120,6 +120,11 @@ def Login():
         Password = request.form['Password']
         Email = request.form['Email']
         print(Password)
+        try:
+            if Email==session.get('Email'):
+                return 'ATTACK'
+        except KeyError:
+            pass
         Email_Defence = SQL_defend(Password)
         if Email_Defence:
             user = UserModel.query.filter_by(Email=Email).first()
@@ -188,4 +193,7 @@ def forget_password3():
 def user_self(Email):
     print(Email)
     if request.method=='GET':
-        return render_template('user_self.html')
+        user=UserModel.query.filter_by(Email=Email).first()
+        face_path={'face_path':user.Face_path}
+        print(face_path)
+        return render_template('user_self.html',**face_path)
