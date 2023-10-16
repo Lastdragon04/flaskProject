@@ -521,6 +521,26 @@
             else {
                 vm.alert_window('两次密码输入不一致','Error_window')
             }
+        },
+        appliance_window_change(flag){
+            if (flag===true){
+                $('#raspberry_link_window').css('display','flex')
+            }
+            else {
+                $('#raspberry_link_window').css('display','none')
+            }
+        },
+        link_ras(flag){
+            if (flag===true){
+               alert('Link')
+               vm.appliance_window_change(true)
+            }
+            else{
+
+            }
+        },
+        modal_show(){
+            $('#myModal').modal('show');
         }
     },
     watch: {
@@ -530,6 +550,7 @@
                     if (old_value !== 'none') {
                         $(`#${old_value}`).css('display', 'none')
                     } else {
+                        alert('弹窗快出来')
                         $('#tanchuang').css('display', 'block')
                     }
                 } else {

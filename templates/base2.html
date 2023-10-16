@@ -10,69 +10,98 @@
     <link rel="stylesheet" href="{{url_for('static',filename='css/normal.css') }}">
     <link rel="stylesheet" href="{{url_for('static',filename='bootstrap-4.6.2-dist/css/bootstrap.css') }}">
     <link rel="stylesheet" href="{{url_for('static',filename='iconfont/iconfont.css') }}">
+    <link rel="stylesheet" href="{{url_for('static',filename='iconfont/iconfont.svg') }}">
     <link rel="stylesheet" href="{{url_for('static',filename='css/font.css') }}">
     <script src="{{url_for('static',filename='js/out_box.js') }}"></script>
     <script src="{{url_for('static',filename='js/base.js') }}"></script>
     <script src="{{url_for('static',filename='js/index.js') }}"></script>
+    <script src="{{url_for('static',filename='iconfont/iconfont.js') }}"></script>
 </head>
-<body>
-    <div id="root" @keydown.esc="change_window('none')" style=" user-select: none;">
-        <div class="fixed-top" style="display: block">
-            <nav class="navbar navbar-dark bg-dark" style="padding-left: 1.5vw;padding-right: 2.3vw">
-                <div class="d-flex flex-row align-items-center" style="gap: 1vw;">
-                    <div style="height:7vh;width: 18vw;margin-top: -3vh">
-                        <a href="https://www.nciae.edu.cn/xxgk/xxjj.htm">
-                            <img src="{{School_logo}}" class="img-fluid" alt="...">
+<body onload="modal_show('{{ Current_page }}')">
+<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">是否已经拥有派派</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        为了您更好的体验我们必须要对您进行询问
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">并没有</button>
+        <button type="button" class="btn btn-primary">我有了</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div id="root" class="fixed-top">
+    <div style="display: flex;flex-direction: row">
+        <div class="left_menu">
+            <div id="part1">
+                <div class="boxs" style="margin-top: 2vh"><img src="{{ url_for('static',filename='img/bhhtgyxy_logo.png') }}" alt="s" style="background-size: cover;height: 9vh;width: 5vw"></div>
+                {% if Email %}
+                    <div class="boxs" style="margin-top: 2vh">
+                        <a href="/user/user_self/{{Email}}" data-toggle="tooltip" data-placement="right" title="个人信息" class="{{ 'active_menu' if Current_page == 'USER_SELF' else '' }}"><div class="boxs"><i class="iconfont" style="font-size: xxx-large">&#xe642;</i></div></a>
+                    </div>
+                    <div class="boxs">
+                        <a href="/"  data-toggle="tooltip" data-placement="right" title="首页" style="margin-top: 2vh" class="{{ 'active_menu' if Current_page == 'INDEX' else '' }}">
+                            <div class="boxs">
+                                <i class="iconfont" style="font-size: xxx-large">&#xe666;</i>
+                            </div>
                         </a>
                     </div>
-                    <div style="display: flex;flex-direction: row;gap: 1vw;justify-content: center;align-items: center">
+                    <div class="boxs" style="margin-top: 2vh">
+                        <a href="/purchase/index" data-toggle="tooltip" data-placement="right" title="订单" class="{{ 'active_menu' if Current_page == 'PURCHASE_INDEX' else '' }}"><div class="boxs"><i class="iconfont" style="font-size: xxx-large">&#xe682;</i></div></a>
+                    </div>
+                    <div class="boxs" style="margin-top: 2vh">
+                        <a href="/control/index" data-toggle="tooltip" data-placement="right" title="设备控制" class="{{ 'active_menu' if Current_page == 'CONTROL_INDEX' else '' }}"><div class="boxs" style="padding-left: 1vw"><i class="iconfont" style="font-size: xxx-large">&#xe651;</i></div></a>
+                    </div>
+                    <div class="boxs" style="margin-top: 2vh">
+                        <a href="/docs"  data-toggle="tooltip" data-placement="right" title="教程" class="{{ 'active_menu' if Current_page == 'DOCS' else '' }}"><div class="boxs"><i class="iconfont" style="font-size: xxx-large">&#xe6ee;</i></div></a>
+                    </div>
+                    <div style="position: absolute;bottom: 0;color: white;display: flex;flex-direction: column;gap: 1vh">
                         <div>
-                            <a href="/" class="text-light" style="text-decoration: none;font-size: 1.4em;font-weight: bold">返回</a>
+                            <span style="color: white">
+                                <a href="javascript:void (0)" @click="link_ras({% if Email and Username %}true{% else %}false{% endif %})"><i class="iconfont">&#xe811;</i>未连接派派</a>
+                            </span>
                         </div>
                         <div>
-                            <div class="dropdown">
-
-                                <a class="text-light" style="text-decoration: none" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                                    下载
-                                </a>
-                                <div class="dropdown-menu bg-dark">
-                                    <a class="dropdown-item text-light" href="#">Windows(32位)</a>
-                                    <a class="dropdown-item text-light" href="#">Windows(64位)</a>
-                                    <a class="dropdown-item text-light" href="#">App</a>
-                                </div>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitch1">
+                                <label class="custom-control-label" for="customSwitch1">明暗</label>
                             </div>
+                        </div>
+                        <div>
+                            <a href="/user/logout"><i class="iconfont">&#xe639;</i>退出登录</a>
                         </div>
                     </div>
+                {% else %}
+                    <div class="boxs" style="margin-top: 2vh">
+                        <button type="button" class="btn btn-primary btn-small" @click="change_window('login')">登录</button>
+                    </div>
+                    <div class="boxs">
+                    <a href="/"  data-toggle="tooltip" data-placement="right" title="首页" style="margin-top: 2vh">
+                        <div class="boxs">
+                            <i class="iconfont" style="font-size: xxx-large">&#xe666;</i>
+                        </div>
+                    </a>
                 </div>
-                <div style="display: flex;flex-direction:row;right: 0;align-items: center;gap: 2vw" id="UserInformation">
-                    {% if Email and Username %}
-
-                        <div class="dropdown">
-                            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                            {{Username}}
-                            </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="/user/user_self/{{Email}}">个人信息</a>
-                                <a class="dropdown-item" href="#">订阅</a>
-                                <a class="dropdown-item" href="#">远程连接授权</a>
-                                <a class="dropdown-item" href="/user/logout">退出登录</a>
-                            </div>
-                        </div>
-                        <div>
-                            <a href="">注销</a>
-                        </div>
-                    {% else %}
-                        <div>
-                            <a class="btn btn-primary btn-lg" href="#" @click.prevent="change_window('login')">登录</a>
-                        </div>
-                        <div>
-                            <a href="#" @click.prevent="change_window('register1')">注册</a>
-                        </div>
-                    {% endif %}
-                </div>
-            </nav>
+                {% endif %}
+            </div>
         </div>
-        <div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang" @keyup.esc="change_window('none')">
+        <div class="overflow-auto" style="height: 100vh;width: 93vw;">
+        {% block body %}
+
+        {% endblock %}
+        </div>
+    </div>
+<div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="tanchuang" @keyup.esc="change_window('none')">
             <div class="close_window"><a href="javascript:void(0)" @click.prevent="close_window">[esc]关闭窗口</a></div>
             <div class="alert alert-danger" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Error_window"></div>
             <div class="alert alert-success" role="alert" style="position: absolute;display: none;right: 0;top: 0" id="Success_window"></div>
@@ -301,12 +330,53 @@
                 </div>
             </div>
         </div>
-        <div style="margin-top: 3vh"></div>
-        <div style="height: 300vh;margin-top: 6vh;padding-left: 2vw;padding-right: 2vw">
-            {% block body %}
-
-            {% endblock %}
+<div class="out_window shadow-lg p-3 mb-5 bg-white rounded" id="raspberry_link_window" style="display: none;left: 27vw;top: 15vh">
+    <div class="close_window"><a href="javascript:void(0)" @click="appliance_window_change(false)">[esc]关闭窗口</a></div>
+    <div style="display: flex;flex-direction: column;width: 100%">
+        <div>
+            <h1>Starting Link Raspberry pi 4B</h1>
         </div>
+        <div>
+            <hr style="width: 100%">
+        </div>
+        <form>
+            <div style="display: flex;width: 100%;flex-direction: column;gap: 2vh">
+                <div style="display: flex;">
+                    <div style="width: 10vw">
+                        <label class="sr-only" for="inlineFormInputName">IP</label>
+                        <input type="text" class="form-control" id="inlineFormInputName" placeholder="192.168.XX.XX" maxlength="15">
+                    </div>
+                    <div style="width: 7vw;">
+                        <label class="sr-only" for="inlineFormInputGroupUsername">Port</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">:</div>
+                            </div>
+                            <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Port">
+                        </div>
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="autoSizingCheck2">
+                    <label class="form-check-label" for="autoSizingCheck2">
+                    记住派派
+                    </label>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary btn-lg">Link</button>
+                </div>
+            </div>
+        </form>
     </div>
+</div>
+</div>
+<script type="text/javascript">
+    $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
 </body>
 </html>

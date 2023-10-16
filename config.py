@@ -15,6 +15,8 @@ class Config:
     MAIL_USERNAME = Mail
     MAIL_PASSWORD = SECRET
     PERMANENT_SESSION_LIFETIME = timedelta(hours=0.1)
+    FLASK_ADMIN_SWATCH='cerulean'
+    BABEL_DEFAULT_LOCALE = "zh_CN"
 
 
 

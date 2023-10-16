@@ -1,0 +1,79 @@
+﻿{% extends 'base2.html' %}
+{% block title %}
+    说明文档
+{% endblock %}
+{% block body %}
+    <div style="display: flex;justify-content: space-between;">
+        <div style="width: 80%;height: 100%;padding-left: 4%;display: flex;flex-direction: row" class="overflow-auto">
+            <div style="width: 100%;height: 100%;">
+                <article>
+                    <span class="page_title">说明文档 <i class="iconfont">&#xe6ee;</i></span><br>
+                    <br>
+                    <hr>
+                    <article>
+                        <h1>一、简介</h1>
+                        <p>该界面主要阐释准备工作以及树莓派
+                            <a href="{{ url_for('purchase.purchase_index') }}" data-toggle="tooltip" data-placement="right" title="仅有信用卡大小的一个小型电脑，您可以将树莓派连接电视、显示器、键盘鼠标等设备使用。
+                                树莓派能替代日常桌面计算机的多种用途，包括文字处理、电子表格、媒体中心甚至是游戏。并且树莓派还可以播放高至 4K 的高清视频。
+                                我们希望将树莓派推广给全世界的青少年电脑爱好者，用于培养计算机程序设计的兴趣和能力。">
+                                <i class="iconfont">&#xe8ac;</i>
+                            </a>的linux配置文件，手把手教您怎么折腾树莓派</p>
+                        <p>包括系统烧录，引脚介绍，红外线配置，GPIO的运行等等</p>
+                        <p>比如控制空调配置温湿度等，目录见右侧菜单</p>
+                    </article>
+                    <article>
+                        <h1>二、准备工作</h1>
+                        <hr>
+                        <p>在此之前你需要准备些东西 <br>
+                        <div style="display: flex;flex-direction: row;width: 100%">
+                            <div style="width: 40%">
+                                <span style="font-weight: bolder">硬件:</span>  一个树莓派，屏幕，高速TF卡以及充电器 <br>
+                                <span style="font-weight: bolder">软件: </span><a href="https://downloads.raspberrypi.org/imager/imager_latest.exe" data-toggle="tooltip" data-placement="right" title='下载连接，点击下载'>rpi-imager.exe </a>、
+                                <a href="https://downloads.realvnc.com/download/file/viewer.files/VNC-Viewer-7.6.1-Windows.exe" data-toggle="tooltip" data-placement="right" title='下载连接，点击下载'>VNC VIEWER</a>、
+                                <a href="https://cn.bing.com/search?q=article%E6%A0%87%E7%AD%BE&gs_lcrp=EgZjaHJvbWUqCQgGEEUYQBjCAzIJCAAQRRhAGMIDMgkIARBFGEAYwgMyCQgCEEUYQBjCAzIJCAMQRRhAGMIDMgkIBBBFGEAYwgMyCQgFEEUYQBjCAzIJCAYQRRhAGMIDMgkIBxBFGEAYwgPSAQk4NDI4OWowajSoAgiwAgE&FORM=ANAB01&PC=CNNDDB" data-toggle="tooltip" data-placement="right" title='参见该位博主'>SDFormatter</a>
+                            </div>
+                            <div style="width: 60%;">
+                                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="padding-left: 0;width: 100%">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item">
+                            <img src="{{ url_for('static',filename='doc_img/SDFormatter.png')}}" class="d-block w-100 img_contain" alt="硬盘初始化工具">
+                        </div>
+                        <div class="carousel-item active">
+                            <img src="{{ url_for('static',filename='doc_img/Image.png') }}" class="d-block w-100 img_contain" alt="官方的镜像烧录">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="{{ url_for('static',filename='doc_img/VNC_Viewer.png') }}" class="d-block w-100 img_contain" alt="VNC Viewer">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev btn btn-dark" type="button" data-target="#carouselExampleIndicators" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </button>
+                    <button class="carousel-control-next btn btn-dark" type="button" data-target="#carouselExampleIndicators" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </button>
+                </div>
+                            </div>
+                        </div>
+                    </article>
+                </article>
+            </div>
+        </div>
+        <div style="width: 20%;" class="overflow-auto shadow-sm">
+            <div style="display: flex;flex-direction: row">
+                <div>
+                    <label for="docs_search"><i class="iconfont" style="font-size: x-large">&#xe684;</i></label>
+                </div>
+                <div>
+                    <input class="form-control" type="text" placeholder="搜索" id="docs_search">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

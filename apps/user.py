@@ -194,6 +194,6 @@ def user_self(Email):
     print(Email)
     if request.method=='GET':
         user=UserModel.query.filter_by(Email=Email).first()
-        face_path={'face_path':user.Face_path}
-        print(face_path)
-        return render_template('user_self.html',**face_path)
+        Information={'face_path':user.Face_path,'Current_page':'USER_SELF'}
+        print(Information)
+        return render_template('user_self.html',**Information)

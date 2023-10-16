@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>HTML5 语义元素示例</title>
+    <style>
+        header, footer, nav, main, section, article, aside {
+            border: 1px solid #ccc;
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        .left-sidebar {
+            width: 20%;
+            border-right: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .main-content {
+            width: 80%;
+            padding: 10px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav li {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="left-sidebar">
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#">关于我们</a></li>
+                <li><a href="#">联系我们</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <article>
+            <h2>文章标题</h2>
+            <p>这是文章的内容。在此处，我们可以看到一些<mark>重要的</mark>文本高亮显示。</p>
+            <figure>
+                <img src="path_to_image.jpg" alt="示例图片">
+                <figcaption>图片说明文字</figcaption>
+            </figure>
+            <details>
+                <summary>更多文章信息</summary>
+                <p>这里是关于文章的更多详细信息。</p>
+            </details>
+        </article>
+
+        <aside>
+            <h3>相关链接</h3>
+            <ul>
+                <li><a href="#">链接1</a></li>
+                <li><a href="#">链接2</a></li>
+            </ul>
+        </aside>
+
+        <section>
+            <h2>其他部分标题</h2>
+            <p>这是该部分的内容。</p>
+            <time datetime="2023-10-01">发布日期：2023年10月1日</time>
+        </section>
+    </div>
+</div>
+
+<footer>
+    <p>版权所有 © 2023. 某某公司.</p>
+</footer>
+
+</body>
+</html>

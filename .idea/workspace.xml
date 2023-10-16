@@ -4,26 +4,43 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="">
-      <change afterPath="$PROJECT_DIR$/identify/face_img/id/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/migrations/versions/a957ffbd973b_.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/关于flask" afterDir="false" />
+    <list default="true" id="eb0f7f87-bc5f-46e4-b64f-06ef375d23f5" name="变更" comment="前端部分改动">
+      <change afterPath="$PROJECT_DIR$/apps/purchase.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/apps/remote.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/doc_img/Image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/doc_img/SDFormatter.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/doc_img/VNC_Viewer.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/goods_img/Raspberry_pi_3B.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/goods_img/Raspberry_pi_4B.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/Raspberry_Pi.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/bhhtgyxy_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/img/yingjiao.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/Control.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/base2.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/docs.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/order.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/purchase.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/927a6e2b-7872-440b-94d6-e3e5be8801d3.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/927a6e2b-7872-440b-94d6-e3e5be8801d3.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Model.py" beforeDir="false" afterPath="$PROJECT_DIR$/Model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/apps/user.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/check.py" beforeDir="false" afterPath="$PROJECT_DIR$/check.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/exts.py" beforeDir="false" afterPath="$PROJECT_DIR$/exts.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/face_img/id/1.png" beforeDir="false" afterPath="$PROJECT_DIR$/identify/face_img/id/1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/identify/trainer/trainer.yml" beforeDir="false" afterPath="$PROJECT_DIR$/identify/trainer/trainer.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/087fdc3f5342_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/migrations/versions/d861bfee4104_.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/normal.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/normal.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/demo_index.html" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/demo_index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/iconfont.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/iconfont.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/iconfont.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/iconfont.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/iconfont.json" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/iconfont.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/iconfont.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/iconfont.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/iconfont.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/iconfont.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/iconfont.woff" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/iconfont.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/iconfont/iconfont.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/static/iconfont/iconfont.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/img/标签.jpeg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/static/js/base.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/base.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/js/弹出框测试.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/out_box.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/js/out_box.js" beforeDir="false" afterPath="$PROJECT_DIR$/static/js/out_box.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/user_self.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/user_self.html" afterDir="false" />
@@ -38,9 +55,9 @@
       <list>
         <option value="Flask Main" />
         <option value="CSS File" />
-        <option value="Python Script" />
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -87,7 +104,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/static/goods_img" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.stylelint" value="true" />
@@ -97,22 +114,23 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_interpreter_path" value="$PROJECT_DIR$/../../../../../Program Files/nodejs/node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="Docker" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\goods_img" />
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\iconfont" />
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\img" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\css" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\video" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\js" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\img" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\doc_img" />
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\goods_img" />
+      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\img" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify" />
       <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\identify\trainer" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static\video" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject\static" />
-      <recent name="C:\Users\张朝凯\Desktop\重要项目\flaskProject" />
     </key>
   </component>
   <component name="RunManager" selected="Flask 服务器.flaskProject">
@@ -446,7 +464,29 @@
       <workItem from="1695627406052" duration="7483000" />
       <workItem from="1695642813978" duration="2489000" />
       <workItem from="1695717431154" duration="864000" />
-      <workItem from="1695867660734" duration="3412000" />
+      <workItem from="1695867660734" duration="4684000" />
+      <workItem from="1695874560052" duration="3983000" />
+      <workItem from="1696164731106" duration="6719000" />
+      <workItem from="1696214952628" duration="10731000" />
+      <workItem from="1696234930572" duration="6536000" />
+      <workItem from="1696306500084" duration="6381000" />
+      <workItem from="1696330913901" duration="3297000" />
+      <workItem from="1696395340562" duration="5000" />
+      <workItem from="1696412179795" duration="594000" />
+      <workItem from="1696416871199" duration="54000" />
+      <workItem from="1696484581022" duration="11587000" />
+      <workItem from="1696572174509" duration="1256000" />
+      <workItem from="1696650281992" duration="15053000" />
+      <workItem from="1696669139809" duration="1298000" />
+      <workItem from="1696739778732" duration="5340000" />
+      <workItem from="1696921877399" duration="3136000" />
+      <workItem from="1697086320249" duration="879000" />
+      <workItem from="1697198161185" duration="161000" />
+      <workItem from="1697344288592" duration="4214000" />
+      <workItem from="1697352931641" duration="3996000" />
+      <workItem from="1697363543035" duration="3032000" />
+      <workItem from="1697375542617" duration="2276000" />
+      <workItem from="1697428648323" duration="3810000" />
     </task>
     <task id="LOCAL-00001" summary="1">
       <created>1688184651557</created>
@@ -623,7 +663,14 @@
       <option name="project" value="LOCAL" />
       <updated>1693298385628</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="前端部分改动">
+      <created>1695871427821</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1695871427821</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -656,7 +703,8 @@
     <MESSAGE value="他妈的提交的时候不知道按哪了，给老子整了这么多乱码，现在改完了阿" />
     <MESSAGE value="导航条整完了。" />
     <MESSAGE value="后端钩子函数完成" />
-    <option name="LAST_COMMIT_MESSAGE" value="后端钩子函数完成" />
+    <MESSAGE value="前端部分改动" />
+    <option name="LAST_COMMIT_MESSAGE" value="前端部分改动" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/flaskProject$SQL.coverage" NAME="防SQL注入测试 覆盖结果" MODIFIED="1688567632116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -668,7 +716,7 @@
     <SUITE FILE_PATH="coverage/flaskProject$wsgi.coverage" NAME="wsgi 覆盖结果" MODIFIED="1685260507227" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/workspace_xml$1.coverage" NAME="1 覆盖结果" MODIFIED="1688969092449" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/templates" />
     <SUITE FILE_PATH="coverage/workspace_xml$user.coverage" NAME="user 覆盖结果" MODIFIED="1693303030832" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apps" />
-    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1695867807849" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/workspace_xml$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1697428675205" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/flaskProject$flaskProject.coverage" NAME="flaskProject 覆盖结果" MODIFIED="1688613998573" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/workspace_xml$Enter_face.coverage" NAME="Enter_face 覆盖结果" MODIFIED="1693484029945" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/identify" />
     <SUITE FILE_PATH="coverage/workspace_xml$app.coverage" NAME="app 覆盖结果" MODIFIED="1693731094859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

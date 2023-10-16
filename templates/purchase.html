@@ -1,0 +1,57 @@
+﻿{% extends 'base2.html' %}
+{% block title %}
+    购买配件
+{% endblock %}
+{% block body %}
+    <div style="height: 100%;display: flex;flex-direction: row;padding-left: 4%" class="overflow-auto">
+        <div style="width: 70%;height: 100%;">
+            <article>
+                <span class="page_title">选购硬件<i class="iconfont">&#xe682;</i></span><br>
+                <br>
+                <p><a href="javascript:void(0)" class=""><i class="iconfont" style="font-size: x-large">&#xe609;</i>客服</a></p>
+                <hr>
+                <p>树莓派及其套件是使用该系统的前提，教程也由本网站提供，</p>
+                <p>建议使用本站或官网购买的树莓派，以免出现预料之外的错误</p>
+                <p>对应订单来说就是一个采购系统也是本网站的唯一盈利方式用于维持网站服务器开销,欢迎支持</p>
+                <p>该网站教程，主要以树莓派4B来进行准备工作，因此我们更希望您拥有树莓派4B来进行控制</p>
+            </article>
+        </div>
+        <div id="goods_1" class="goods" style="width: 30%">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" style="display: flex;width: 100%;">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{url_for('static',filename='goods_img/Raspberry_pi_4B.png')}}" class="d-block w-100 img_contain" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="{{url_for('static',filename='goods_img/Raspberry_pi_3B.png')}}" class="d-block w-100 img_contain" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-target="#carouselExampleControls" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </button>
+        </div>
+        <div id="Manufacturers_logo">
+            <img src="{{ url_for('static',filename='img/Raspberry_Pi.png') }}" alt="树莓派">
+        </div>
+        <div class="purchase">
+            <div id="specification">
+                <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                <select class="custom-select" id="inlineFormCustomSelect" style="width: 5vw;">
+                <option selected>4B</option>
+                <option value="1">1W</option>
+                <option value="2">3B</option>
+                </select>
+            </div>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-secondary"><i class="iconfont" style="font-size: large;">&#xe682;</i></button>
+                <button type="button" class="btn btn-secondary">立即购买</button>
+            </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

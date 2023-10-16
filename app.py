@@ -8,9 +8,13 @@ import jinja2
 from check import check_login
 from config import Config
 from flask_migrate import Migrate
-from exts import mail, db,admin
+from exts import mail, db
 from Global_config import System_name, get_System_logo, XiaoY
+
 from apps.user import bp as user_bp
+from apps.remote import bp as con_bp
+from apps.purchase import bp as pur_bp
+
 from Model import UserModel
 
 from flask_socketio import SocketIO, send, emit
@@ -19,12 +23,14 @@ from flask_request_id import RequestID
 
 import eventlet
 
+
+
 eventlet.monkey_patch()
 
 app = Flask(__name__, static_folder='static', template_folder='templates')
 app.config.from_object(Config)
 
-admin.init_app(app)
+
 mail.init_app(app)
 socketio = SocketIO()
 socketio.init_app(app, cors_allowed_origins='*')
@@ -34,20 +40,22 @@ migrate = Migrate(app, db)
 temp_request = RequestID(app)
 
 app.register_blueprint(user_bp)
-
-
+app.register_blueprint(con_bp)
+app.register_blueprint(pur_bp)
 
 @app.route('/', methods=['GET'])
 def index():
     if request.method == 'GET':
-        return render_template('index.html')
+        Information = {'Current_page': 'INDEX'}
+        return render_template('index.html',**Information)
 
 
 @app.route('/docs', methods=['GET'])
 @check_login
 def docs():
     if request.method == 'GET':
-        return render_template('index.html')
+        Information = {'Current_page': 'DOCS'}
+        return render_template('docs.html',**Information)
 
 
 @app.before_request
